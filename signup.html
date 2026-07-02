@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Create Account — Luxury Real Estate</title>
+<link rel="icon" href="/logo.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#111827;--muted:#6B7280;--line:#e6ebf3;--primary:#0B132B;--secondary:#1C2541;--gold:#D4AF37;--gold-2:#F4CF6A;--grad:linear-gradient(135deg,#D4AF37,#F4CF6A 55%,#B98A24);--r:20px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{overflow-x:hidden;max-width:100%}
+  body{font-family:Poppins,sans-serif;color:var(--ink);min-height:100vh;display:grid;grid-template-columns:1.05fr 1fr;background:#fff}
+  img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none}
+  h1,h2,h3{font-family:'Playfair Display',serif;color:var(--primary);line-height:1.15}
+  p{color:var(--muted)}
+
+  .visual{position:relative;overflow:hidden;color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:44px}
+  .visual::before{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1400&q=80') center/cover;z-index:-2;animation:kb 22s ease-in-out infinite alternate}
+  @keyframes kb{from{transform:scale(1)}to{transform:scale(1.12)}}
+  .visual::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(11,19,43,.85),rgba(28,37,65,.6));z-index:-1}
+  .v-top a.logo{display:flex;align-items:center;gap:14px;color:#fff;font-family:'Playfair Display',serif;font-weight:700}
+  .v-top img{height:52px;filter:drop-shadow(0 4px 12px rgba(212,175,55,.5))}
+  .v-top small{display:block;font-size:.6rem;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;font-family:Poppins;margin-top:2px}
+  .v-bottom .eyebrow{display:inline-block;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+  .v-bottom h2{color:#fff;font-size:2.6rem;margin-bottom:14px;line-height:1.1}
+  .v-bottom p{color:rgba(255,255,255,.85);max-width:420px}
+  .v-perks{margin-top:26px;display:flex;flex-direction:column;gap:10px}
+  .v-perks div{display:flex;gap:12px;align-items:center;font-size:.9rem;color:rgba(255,255,255,.9)}
+  .v-perks span{width:28px;height:28px;border-radius:50%;background:rgba(212,175,55,.2);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
+
+  .form-wrap{display:flex;align-items:center;justify-content:center;padding:50px 40px;position:relative;background:linear-gradient(180deg,#fff,#fafbfc)}
+  .form-card{width:100%;max-width:500px}
+  .form-card h1{font-size:2rem;margin-bottom:6px}
+  .form-card .sub{margin-bottom:24px;font-size:.92rem}
+
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;position:relative}
+  .field label{font-weight:600;font-size:.8rem;color:var(--primary)}
+  .field input,.field select{padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:.9rem;font-family:inherit;transition:.2s;background:#fff;color:var(--ink)}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 4px rgba(212,175,55,.12)}
+  .err{color:#c0392b;font-size:.76rem;min-height:14px}
+  .field.invalid input,.field.invalid select{border-color:#c0392b}
+  .pwd-wrap{position:relative}.toggle{position:absolute;right:14px;top:11px;color:var(--muted);font-size:.8rem;font-weight:600}
+
+  .strength{height:5px;border-radius:3px;background:var(--line);margin-top:6px;overflow:hidden}
+  .strength-bar{height:100%;width:0;transition:.3s;border-radius:3px}
+  .strength-label{font-size:.72rem;color:var(--muted);margin-top:4px}
+
+  /* Role card selection */
+  .roles{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px}
+  .role-c{padding:14px 12px;border:1.5px solid var(--line);border-radius:12px;text-align:center;cursor:pointer;transition:.25s;background:#fff}
+  .role-c:hover{border-color:var(--gold)}
+  .role-c.selected{border-color:var(--gold);background:linear-gradient(135deg,rgba(212,175,55,.1),transparent);box-shadow:0 8px 20px -12px rgba(212,175,55,.4)}
+  .role-c .ic{font-size:1.4rem;color:var(--gold);margin-bottom:4px}
+  .role-c b{display:block;font-size:.82rem;color:var(--primary);font-weight:600}
+  .role-c small{font-size:.7rem;color:var(--muted)}
+
+  /* Progress bar */
+  .progress{height:4px;background:var(--line);border-radius:2px;overflow:hidden;margin-bottom:18px}
+  .progress-bar{height:100%;background:var(--grad);width:0;transition:.4s}
+
+  .terms{display:flex;gap:8px;align-items:flex-start;font-size:.84rem;color:var(--muted);margin:8px 0 16px}
+  .terms input{margin-top:3px}
+  .terms a{color:var(--gold);font-weight:600}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:.9rem;letter-spacing:.04em;text-transform:uppercase;transition:.35s;width:100%}
+  .btn-primary{background:var(--grad);color:var(--primary);box-shadow:0 18px 40px -12px rgba(212,175,55,.55)}.btn-primary:hover{transform:translateY(-2px)}
+  .alt{text-align:center;margin-top:18px;font-size:.9rem;color:var(--muted)}
+  .alt a{color:var(--gold);font-weight:600}
+  .back{position:absolute;top:26px;right:26px;color:var(--muted);font-size:.85rem}
+
+  .modal{position:fixed;inset:0;background:rgba(11,19,43,.55);display:none;align-items:center;justify-content:center;z-index:200;padding:20px;backdrop-filter:blur(8px)}
+  .modal.open{display:flex}
+  .modal-card{background:#fff;border-radius:24px;max-width:440px;width:100%;padding:40px;text-align:center;animation:pop .4s ease-out}
+  @keyframes pop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+  .modal-card .ok{width:72px;height:72px;border-radius:50%;background:var(--grad);color:var(--primary);display:inline-flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:16px}
+  .modal-card h3{font-family:'Playfair Display';color:var(--primary);font-size:1.5rem;margin-bottom:10px}
+
+  @media(max-width:900px){body{grid-template-columns:1fr}.visual{min-height:240px;padding:30px}.form-wrap{padding:40px 24px}}
+  @media(max-width:520px){.row,.roles{grid-template-columns:1fr}}
+</style></head>
+<body>
+
+<div class="visual">
+  <div class="v-top">
+    <a href="index.html" class="logo"><img src="/logo.png" alt=""/><div>LUXURY<small>Real Estate</small></div></a>
+  </div>
+  <div class="v-bottom">
+    <span class="eyebrow">Join The Circle</span>
+    <h2>Begin Your Private Portfolio.</h2>
+    <p>Verified members receive off-market listings, private-viewing invitations, and priority advisor access.</p>
+    <div class="v-perks">
+      <div><span>✓</span> Off-market inventory access</div>
+      <div><span>✓</span> Private viewing invitations</div>
+      <div><span>✓</span> Dedicated advisor</div>
+      <div><span>✓</span> Complimentary market briefings</div>
+    </div>
+  </div>
+</div>
+
+<div class="form-wrap">
+  <a href="index.html" class="back">← Home</a>
+  <div class="form-card">
+    <h1>Create Account</h1>
+    <p class="sub">It only takes a minute.</p>
+
+    <div class="progress"><div class="progress-bar" id="pbar"></div></div>
+
+    <form id="signupForm" novalidate>
+      <div class="field" id="f-name">
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="John Wellington"/>
+        <div class="err" id="e-name"></div>
+      </div>
+      <div class="row">
+        <div class="field" id="f-email">
+          <label>Email</label>
+          <input type="email" id="email" placeholder="you@email.com"/>
+          <div class="err" id="e-email"></div>
+        </div>
+        <div class="field" id="f-phone">
+          <label>Phone</label>
+          <input type="tel" id="phone" placeholder="+1 555 000 0000"/>
+          <div class="err" id="e-phone"></div>
+        </div>
+      </div>
+      <div class="field" id="f-password">
+        <label>Password</label>
+        <div class="pwd-wrap">
+          <input type="password" id="password" placeholder="Min 8 chars, 1 number, 1 symbol"/>
+          <button type="button" class="toggle" id="togglePwd">Show</button>
+        </div>
+        <div class="strength"><div class="strength-bar" id="strBar"></div></div>
+        <div class="strength-label" id="strLabel">Strength</div>
+        <div class="err" id="e-password"></div>
+      </div>
+      <div class="field" id="f-confirm">
+        <label>Confirm Password</label>
+        <input type="password" id="confirm" placeholder="Re-enter password"/>
+        <div class="err" id="e-confirm"></div>
+      </div>
+
+      <label style="font-weight:600;font-size:.8rem;color:var(--primary);margin-bottom:8px;display:block">Sign Up As</label>
+      <div class="roles">
+        <div class="role-c" data-r="customer"><div class="ic">◈</div><b>Customer</b><small>Buy · Rent</small></div>
+        <div class="role-c" data-r="agent"><div class="ic">✦</div><b>Agent</b><small>Represent</small></div>
+        <div class="role-c" data-r="admin"><div class="ic">◆</div><b>Admin</b><small>Manage</small></div>
+      </div>
+      <select id="role" style="display:none">
+        <option value=""></option><option value="customer">Customer</option><option value="agent">Agent</option><option value="admin">Admin</option>
+      </select>
+      <div class="err" id="e-role" style="margin-top:-8px;margin-bottom:8px"></div>
+
+      <div class="terms">
+        <input type="checkbox" id="terms"/>
+        <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
+      </div>
+      <div class="err" id="e-terms" style="margin-top:-8px;margin-bottom:10px"></div>
+
+      <button type="submit" class="btn btn-primary">Create Account →</button>
+    </form>
+
+    <div class="alt">Already have an account? <a href="login.html">Sign in</a></div>
+  </div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <div class="ok">✓</div>
+    <h3>Account Created!</h3>
+    <p style="color:var(--muted)">Welcome to Luxury Real Estate. Redirecting you to sign in...</p>
+    <button class="btn btn-primary" style="margin-top:18px" onclick="goNext()">Continue</button>
+  </div>
+</div>
+
+<script>
+  // ===== Same validation logic as original =====
+  const reEmail=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const rePhone=/^[+\d][\d\s().-]{7,}$/;
+  const reName=/^[A-Za-z][A-Za-z\s.'-]{1,}$/;
+
+  function setErr(id,msg){
+    const f=document.getElementById('f-'+id),e=document.getElementById('e-'+id);
+    if(msg){f.classList.add('invalid');e.textContent=msg;return false}
+    f.classList.remove('invalid');e.textContent='';return true;
+  }
+  function val(id){
+    const v=document.getElementById(id).value.trim();
+    if(id==='name')return v?(reName.test(v)?setErr(id,''):setErr(id,'Letters only.')):setErr(id,'Name required.');
+    if(id==='email')return v?(reEmail.test(v)?setErr(id,''):setErr(id,'Invalid email.')):setErr(id,'Email required.');
+    if(id==='phone')return v?(rePhone.test(v)?setErr(id,''):setErr(id,'Invalid phone.')):setErr(id,'Phone required.');
+    if(id==='password'){
+      if(!v)return setErr(id,'Password required.');
+      if(v.length<8)return setErr(id,'Min 8 characters.');
+      if(!/\d/.test(v))return setErr(id,'Add at least one number.');
+      if(!/[^A-Za-z0-9]/.test(v))return setErr(id,'Add at least one symbol.');
+      return setErr(id,'');
+    }
+    if(id==='confirm'){
+      const p=document.getElementById('password').value;
+      if(!v)return setErr(id,'Confirm your password.');
+      if(v!==p)return setErr(id,'Passwords do not match.');
+      return setErr(id,'');
+    }
+    if(id==='role')return v?setErr(id,''):setErr(id,'Choose a role.');
+  }
+
+  ['name','email','phone','password','confirm','role'].forEach(id=>{
+    const el=document.getElementById(id);
+    el.addEventListener('input',()=>{val(id);updateProgress()});el.addEventListener('blur',()=>val(id));
+  });
+
+  // Role card select
+  document.querySelectorAll('.role-c').forEach(c=>c.addEventListener('click',()=>{
+    document.querySelectorAll('.role-c').forEach(x=>x.classList.remove('selected'));
+    c.classList.add('selected');
+    document.getElementById('role').value=c.dataset.r;
+    val('role');updateProgress();
+  }));
+
+  // Strength meter
+  const bar=document.getElementById('strBar'),lab=document.getElementById('strLabel');
+  document.getElementById('password').addEventListener('input',e=>{
+    const v=e.target.value;let s=0;
+    if(v.length>=8)s++;if(/[A-Z]/.test(v))s++;if(/\d/.test(v))s++;if(/[^A-Za-z0-9]/.test(v))s++;if(v.length>=12)s++;
+    const pct=(s/5)*100;bar.style.width=pct+'%';
+    const map=[{c:'#ddd',l:'Strength'},{c:'#ef4444',l:'Very weak'},{c:'#f59e0b',l:'Weak'},{c:'#eab308',l:'Fair'},{c:'#22c55e',l:'Strong'},{c:'#16a34a',l:'Very strong'}];
+    bar.style.background=map[s].c;lab.textContent=map[s].l;
+  });
+
+  // Overall progress
+  function updateProgress(){
+    const fields=['name','email','phone','password','confirm','role'];
+    const filled=fields.filter(id=>document.getElementById(id).value.trim()).length;
+    document.getElementById('pbar').style.width=(filled/fields.length*100)+'%';
+  }
+
+  document.getElementById('togglePwd').addEventListener('click',()=>{
+    const p=document.getElementById('password'),t=document.getElementById('togglePwd');
+    p.type=p.type==='password'?'text':'password';t.textContent=p.type==='password'?'Show':'Hide';
+  });
+
+  document.getElementById('signupForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const ok=['name','email','phone','password','confirm','role'].map(val).every(Boolean);
+    const terms=document.getElementById('terms').checked;
+    document.getElementById('e-terms').textContent=terms?'':'You must accept the terms.';
+    if(!ok||!terms)return;
+    document.getElementById('modal').classList.add('open');
+    setTimeout(goNext,2200);
+  });
+
+  function goNext(){
+    location.href='login.html';
+  }
+</script>
+</body></html>
