@@ -92,7 +92,7 @@ body:has(#navbar){padding-top:76px}
 .nav-logo-text{font-family:'Raleway',sans-serif;font-size:1.5rem;font-weight:900;color:var(--navy);letter-spacing:-1px}
 .nav-logo-text span{color:var(--orange)}
 .nav-logo-img {
-  height: 42px;
+  height: 100px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -102,14 +102,14 @@ body:has(#navbar){padding-top:76px}
   transform: scale(1.04);
 }
 .loader-logo-img {
-  height: 60px;
+  height: 100px;
   width: auto;
   object-fit: contain;
   display: block;
   margin: 0 auto;
 }
 .footer-logo-img {
-  height: 45px;
+  height: 100px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -896,7 +896,7 @@ body.no-scroll, html.no-scroll {
   align-items: center;
 }
 .login-box-header .nav-logo-img {
-  height: 36px;
+  height: 100px;
   width: auto;
   object-fit: contain;
 }
@@ -1473,11 +1473,13 @@ body.no-scroll, html.no-scroll {
     padding-top: 68px;
   }
   .nav-inner {
-    height: 68px;
+    height: 90px;
     padding: 0 16px;
   }
-  .nav-logo-img {
-    max-height: 40px;
+  .nav-logo-img{
+    height:100px;
+    max-height:none;
+    width:auto;
   }
   .hamburger {
     display: flex;
@@ -1617,7 +1619,7 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
     </svg>
   </div>
   <div class="ld-logo">
-    <img src="logo_gold.webp" alt="Stackly Logo" class="loader-logo-img">
+    <img src="./gallery/stackly-pink.webp" alt="Stackly Logo" class="loader-logo-img">
   </div>
   <div class="ld-bar-bg"><div class="ld-bar"></div></div>
   <div class="ld-words">Opening secure portal...</div>
@@ -1629,7 +1631,7 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
     
     <!-- Left Side: Visual real estate-themed image -->
     <div class="login-visual">
-      <img src="downloaded_images/house1.webp" alt="Real Estate Theme Image">
+      <img src="./gallery/login-page-1.webp" alt="Real Estate Theme Image">
       <div class="login-visual-overlay"></div>
       <div class="login-visual-text">
         <h3>Find Your Place</h3>
@@ -1642,9 +1644,9 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
       <!-- Box Header (Logo and Back button option inside the box) -->
       <div class="login-box-header">
         <a href="index.html" class="nav-logo">
-          <img src="logo_gold.webp" alt="Stackly Logo" class="nav-logo-img">
+          <img src="./gallery/stackly-pink.webp" alt="Stackly Logo" class="nav-logo-img">
         </a>
-        <a href="index.html" class="btn-back-home">🏠 Back</a>
+        <a href="index.html" class="btn-back-home">🏠 Back to home</a>
       </div>
 
       <div class="login-header">
@@ -1751,7 +1753,8 @@ const handleLogin = (e) => {
   localStorage.setItem('userEmail', emailVal);
   localStorage.setItem('userRole', roleVal);
   
-  handleTransition(null, 'dashboard.html');
+  const destination = roleVal === 'admin' ? 'admin-dashboard.html' : 'customer-dashboard.html';
+  handleTransition(null, destination);
 };
 
 const handleSocialLogin = (provider) => {
