@@ -165,6 +165,355 @@ tbody tr:hover{background:var(--light)}
   .tb-search{display:none}
   .settings-form{grid-template-columns:1fr}
 }
+
+
+
+.quick-actions{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.action-card{
+background:#fff;
+border:1px solid var(--border);
+border-radius:18px;
+padding:25px;
+text-align:center;
+text-decoration:none;
+transition:.35s;
+color:var(--navy);
+}
+
+.action-card span{
+font-size:2rem;
+display:block;
+margin-bottom:12px;
+}
+
+.action-card h4{
+margin-bottom:8px;
+font-size:.95rem;
+}
+
+.action-card p{
+font-size:.75rem;
+color:var(--gray);
+}
+
+.action-card:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 35px rgba(37,99,235,.12);
+border-color:var(--pink);
+}
+
+.lead-table{
+width:100%;
+border-collapse:collapse;
+}
+
+.lead-table th,
+.lead-table td{
+padding:16px;
+text-align:left;
+border-bottom:1px solid var(--border);
+font-size:.82rem;
+}
+
+.lead-table th{
+background:#f8fbff;
+font-weight:700;
+}
+
+.badge{
+padding:6px 14px;
+border-radius:30px;
+font-size:.72rem;
+font-weight:700;
+}
+
+.success{
+background:#d1fae5;
+color:#059669;
+}
+
+.pending{
+background:#fef3c7;
+color:#d97706;
+}
+
+@media(max-width:900px){
+
+.quick-actions{
+grid-template-columns:repeat(2,1fr);
+}
+
+.lead-table{
+display:block;
+overflow-x:auto;
+}
+
+}
+
+@media(max-width:600px){
+
+.quick-actions{
+grid-template-columns:1fr;
+}
+
+}
+
+
+
+
+.activity-item,
+.agent-item{
+display:flex;
+align-items:center;
+gap:16px;
+padding:18px 0;
+border-bottom:1px solid var(--border);
+transition:.3s;
+}
+
+.activity-item:last-child,
+.agent-item:last-child{
+border-bottom:none;
+}
+
+.activity-item:hover,
+.agent-item:hover{
+padding-left:10px;
+}
+
+.activity-icon{
+width:50px;
+height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:1.3rem;
+border-radius:14px;
+background:var(--pink-light);
+color:var(--pink);
+}
+
+.activity-info h4,
+.agent-info h4{
+font-size:.88rem;
+font-weight:700;
+color:var(--navy);
+margin-bottom:4px;
+}
+
+.activity-info p,
+.agent-info p{
+font-size:.75rem;
+color:var(--gray);
+}
+
+.activity-time{
+margin-left:auto;
+font-size:.72rem;
+color:#94a3b8;
+font-weight:600;
+}
+
+.agent-avatar{
+width:54px;
+height:54px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.agent-badge{
+margin-left:auto;
+background:#e3f9ec;
+color:#16a34a;
+padding:6px 14px;
+border-radius:30px;
+font-size:.72rem;
+font-weight:700;
+}
+
+
+.performance-list{
+display:flex;
+flex-direction:column;
+gap:22px;
+}
+
+.performance-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px;
+border:1px solid var(--border);
+border-radius:16px;
+transition:.35s;
+background:#fff;
+}
+
+.performance-item:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 30px rgba(37,99,235,.10);
+border-color:var(--pink);
+}
+
+.performance-info h4{
+font-size:.9rem;
+font-weight:700;
+color:var(--navy);
+margin-bottom:5px;
+}
+
+.performance-info span{
+font-size:.76rem;
+color:var(--gray);
+}
+
+.performance-progress{
+display:flex;
+align-items:center;
+gap:14px;
+min-width:220px;
+}
+
+.progress-bar{
+flex:1;
+height:10px;
+background:#edf2f7;
+border-radius:20px;
+overflow:hidden;
+}
+
+.progress-fill{
+height:100%;
+background:var(--grad);
+border-radius:20px;
+}
+
+.performance-progress strong{
+font-size:.82rem;
+color:var(--navy);
+font-weight:700;
+min-width:38px;
+text-align:right;
+}
+
+@media(max-width:768px){
+.performance-item{
+flex-direction:column;
+align-items:flex-start;
+gap:14px;
+}
+
+.performance-progress{
+width:100%;
+min-width:100%;
+}
+}
+
+
+.category-performance{
+display:flex;
+flex-direction:column;
+gap:22px;
+}
+
+.category-item{
+padding:18px;
+border:1px solid var(--border);
+border-radius:16px;
+background:#fff;
+transition:.35s;
+}
+
+.category-item:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 30px rgba(37,99,235,.10);
+border-color:var(--pink);
+}
+
+.category-info{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:12px;
+font-size:.88rem;
+font-weight:700;
+color:var(--navy);
+}
+
+.progress{
+width:100%;
+height:10px;
+background:#edf2f7;
+border-radius:20px;
+overflow:hidden;
+}
+
+.progress-fill{
+height:100%;
+background:var(--grad);
+border-radius:20px;
+transition:width .5s;
+}
+
+
+.security-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.security-card{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:20px;
+    border:1px solid var(--border);
+    border-radius:16px;
+    background:#fff;
+    transition:.35s;
+}
+
+.security-card:hover{
+    transform:translateY(-5px);
+    border-color:var(--pink);
+    box-shadow:0 16px 35px rgba(255,77,141,.12);
+}
+
+.security-icon{
+    width:56px;
+    height:56px;
+    border-radius:14px;
+    background:var(--grad);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.4rem;
+    flex-shrink:0;
+}
+
+.security-card h4{
+    font-size:.9rem;
+    color:var(--navy);
+    margin-bottom:5px;
+}
+
+.security-card p{
+    font-size:.78rem;
+    color:var(--gray);
+    line-height:1.6;
+}
+
+@media(max-width:768px){
+    .security-grid{
+        grid-template-columns:1fr;
+    }
+}
 </style>
 </head>
 <body>
@@ -207,9 +556,12 @@ tbody tr:hover{background:var(--light)}
       </div>
       <div class="tb-right">
         <div class="tb-search">
-          <span>🔍</span>
-          <input type="text" placeholder="Search properties, leads...">
-        </div>
+        <input
+          type="email"
+          id="topbarEmail"
+          placeholder="you@stackly.com"
+          readonly>
+      </div>
         <div class="tb-bell">🔔</div>
         <button class="tb-btn-add">+ Add Listing</button>
         <div class="tb-avatar" id="avatarInitial">A</div>
@@ -244,6 +596,89 @@ tbody tr:hover{background:var(--light)}
           <div class="stat-trend down">▼ 2% this week</div>
         </div>
       </div>
+
+
+      <!-- ===== QUICK ACTIONS ===== -->
+<section style="margin-top:30px;">
+  <div class="panel">
+    <div class="panel-head">
+      <h2>Quick Actions</h2>
+    </div>
+
+    <div class="quick-actions">
+      <a href="#" class="action-card">
+        <span>🏡</span>
+        <h4>Add Property</h4>
+        <p>Create a new listing.</p>
+      </a>
+
+      <a href="#" class="action-card">
+        <span>👤</span>
+        <h4>Add Agent</h4>
+        <p>Register a new agent.</p>
+      </a>
+
+      <a href="#" class="action-card">
+        <span>📞</span>
+        <h4>View Leads</h4>
+        <p>Manage customer enquiries.</p>
+      </a>
+
+      <a href="#" class="action-card">
+        <span>📊</span>
+        <h4>Reports</h4>
+        <p>View sales analytics.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RECENT LISTINGS ===== -->
+
+
+<!-- ===== RECENT LEADS ===== -->
+<section style="margin-top:30px;">
+  <div class="panel">
+    <div class="panel-head">
+      <h2>Latest Customer Leads</h2>
+    </div>
+
+    <table class="lead-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Property</th>
+          <th>Phone</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Rahul Sharma</td>
+          <td>Luxury Villa</td>
+          <td>+91 9876543210</td>
+          <td><span class="badge success">New</span></td>
+        </tr>
+
+        <tr>
+          <td>Priya Reddy</td>
+          <td>Lake View Apartment</td>
+          <td>+91 9876543200</td>
+          <td><span class="badge pending">Pending</span></td>
+        </tr>
+
+        <tr>
+          <td>Arjun Kumar</td>
+          <td>Premium Plot</td>
+          <td>+91 9123456789</td>
+          <td><span class="badge success">Contacted</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
     </section>
 
     <!-- ANALYTICS VIEW -->
@@ -259,6 +694,62 @@ tbody tr:hover{background:var(--light)}
           </div>
         </div>
       </div>
+
+
+<!-- PROPERTY CATEGORY PERFORMANCE -->
+<section style="margin-top:30px;">
+  <div class="panel">
+    <div class="panel-head">
+      <h2>Property Category Performance</h2>
+      <a href="404.html" class="panel-link">View Details →</a>
+    </div>
+
+    <div class="category-performance">
+
+      <div class="category-item">
+        <div class="category-info">
+          <span>🏡 Villas</span>
+          <strong>82%</strong>
+        </div>
+        <div class="progress">
+          <div class="progress-fill" style="width:82%;"></div>
+        </div>
+      </div>
+
+      <div class="category-item">
+        <div class="category-info">
+          <span>🏢 Apartments</span>
+          <strong>71%</strong>
+        </div>
+        <div class="progress">
+          <div class="progress-fill" style="width:71%;"></div>
+        </div>
+      </div>
+
+      <div class="category-item">
+        <div class="category-info">
+          <span>🏘️ Independent Houses</span>
+          <strong>65%</strong>
+        </div>
+        <div class="progress">
+          <div class="progress-fill" style="width:65%;"></div>
+        </div>
+      </div>
+
+      <div class="category-item">
+        <div class="category-info">
+          <span>🌳 Plots</span>
+          <strong>53%</strong>
+        </div>
+        <div class="progress">
+          <div class="progress-fill" style="width:53%;"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
     </section>
 
     <!-- LEADS VIEW -->
@@ -301,6 +792,96 @@ tbody tr:hover{background:var(--light)}
           <span class="lead-tag hot">Hot</span>
         </div>
       </div>
+
+<!-- RECENT ACTIVITIES -->
+<section style="margin-top:30px;">
+  <div class="panel">
+    <div class="panel-head">
+      <h2>Recent Activities</h2>
+      <a href="404.html" class="panel-link">View All →</a>
+    </div>
+
+    <div class="activity-item">
+      <div class="activity-icon">🏠</div>
+      <div class="activity-info">
+        <h4>New Property Added</h4>
+        <p>Luxury Villa was listed by Admin.</p>
+      </div>
+      <span class="activity-time">10 mins ago</span>
+    </div>
+
+    <div class="activity-item">
+      <div class="activity-icon">📞</div>
+      <div class="activity-info">
+        <h4>Lead Assigned</h4>
+        <p>Priya Sharma assigned to Agent Rahul.</p>
+      </div>
+      <span class="activity-time">45 mins ago</span>
+    </div>
+
+    <div class="activity-item">
+      <div class="activity-icon">💰</div>
+      <div class="activity-info">
+        <h4>Payment Received</h4>
+        <p>Booking amount received for Lakeview Residency.</p>
+      </div>
+      <span class="activity-time">2 hrs ago</span>
+    </div>
+
+    <div class="activity-item">
+      <div class="activity-icon">🗓️</div>
+      <div class="activity-info">
+        <h4>Site Visit Scheduled</h4>
+        <p>Customer booked a visit for Sunday.</p>
+      </div>
+      <span class="activity-time">Today</span>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<!-- TOP AGENTS -->
+<section style="margin-top:30px;">
+  <div class="panel">
+    <div class="panel-head">
+      <h2>Top Performing Agents</h2>
+      <a href="404.html" class="panel-link">View All →</a>
+    </div>
+
+    <div class="agent-item">
+      <img src="https://i.pravatar.cc/100?img=12" class="agent-avatar">
+      <div class="agent-info">
+        <h4>Rahul Kumar</h4>
+        <p>18 Properties Sold</p>
+      </div>
+      <span class="agent-badge">⭐ 4.9</span>
+    </div>
+
+    <div class="agent-item">
+      <img src="https://i.pravatar.cc/100?img=32" class="agent-avatar">
+      <div class="agent-info">
+        <h4>Sneha Reddy</h4>
+        <p>15 Properties Sold</p>
+      </div>
+      <span class="agent-badge">⭐ 4.8</span>
+    </div>
+
+    <div class="agent-item">
+      <img src="https://i.pravatar.cc/100?img=45" class="agent-avatar">
+      <div class="agent-info">
+        <h4>Arjun Patel</h4>
+        <p>13 Properties Sold</p>
+      </div>
+      <span class="agent-badge">⭐ 4.7</span>
+    </div>
+
+  </div>
+</section>
+
+
     </section>
 
     <!-- LISTINGS VIEW -->
@@ -379,6 +960,62 @@ tbody tr:hover{background:var(--light)}
           </table>
         </div>
       </div>
+
+
+
+      <!-- PROPERTY CATEGORY PERFORMANCE -->
+<section style="margin-top:30px;">
+  <div class="panel">
+    <div class="panel-head">
+      <h2>Property Category Performance</h2>
+      <a href="404.html" class="panel-link">View Details →</a>
+    </div>
+
+    <div class="category-performance">
+
+      <div class="category-item">
+        <div class="category-info">
+          <span>🏡 Villas</span>
+          <strong>82%</strong>
+        </div>
+        <div class="progress">
+          <div class="progress-fill" style="width:82%;"></div>
+        </div>
+      </div>
+
+      <div class="category-item">
+        <div class="category-info">
+          <span>🏢 Apartments</span>
+          <strong>71%</strong>
+        </div>
+        <div class="progress">
+          <div class="progress-fill" style="width:71%;"></div>
+        </div>
+      </div>
+
+      <div class="category-item">
+        <div class="category-info">
+          <span>🏘️ Independent Houses</span>
+          <strong>65%</strong>
+        </div>
+        <div class="progress">
+          <div class="progress-fill" style="width:65%;"></div>
+        </div>
+      </div>
+
+      <div class="category-item">
+        <div class="category-info">
+          <span>🌳 Plots</span>
+          <strong>53%</strong>
+        </div>
+        <div class="progress">
+          <div class="progress-fill" style="width:53%;"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
     </section>
 
     <!-- AGENTS VIEW -->
@@ -415,7 +1052,75 @@ tbody tr:hover{background:var(--light)}
           </div>
         </div>
       </div>
-    </section>
+
+
+<!-- AGENT PERFORMANCE -->
+<section style="margin-top:30px;">
+  <div class="panel">
+    <div class="panel-head">
+      <h2>Agent Performance</h2>
+      <a href="404.html" class="panel-link">View Report →</a>
+    </div>
+
+    <div class="performance-list">
+
+      <div class="performance-item">
+        <div class="performance-info">
+          <h4>Ravi Kumar</h4>
+          <span>18 Properties Sold</span>
+        </div>
+        <div class="performance-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:95%;"></div>
+          </div>
+          <strong>95%</strong>
+        </div>
+      </div>
+
+      <div class="performance-item">
+        <div class="performance-info">
+          <h4>Sneha Reddy</h4>
+          <span>15 Properties Sold</span>
+        </div>
+        <div class="performance-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:82%;"></div>
+          </div>
+          <strong>82%</strong>
+        </div>
+      </div>
+
+      <div class="performance-item">
+        <div class="performance-info">
+          <h4>Arvind Rao</h4>
+          <span>12 Properties Sold</span>
+        </div>
+        <div class="performance-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:74%;"></div>
+          </div>
+          <strong>74%</strong>
+        </div>
+      </div>
+
+      <div class="performance-item">
+        <div class="performance-info">
+          <h4>Divya Menon</h4>
+          <span>8 Properties Sold</span>
+        </div>
+        <div class="performance-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:61%;"></div>
+          </div>
+          <strong>61%</strong>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</section>
 
     <!-- SETTINGS VIEW -->
     <section id="settings" class="view-section">
@@ -439,6 +1144,53 @@ tbody tr:hover{background:var(--light)}
         </div>
         <button class="settings-save">Save Changes</button>
       </div>
+
+
+      <!-- SECURITY VIEW -->
+<section class="view-section">
+  <div class="panel">
+    <div class="panel-head">
+      <h2>Security & Login Activity</h2>
+      <a href="404.html" class="panel-link">Manage →</a>
+    </div>
+
+    <div class="security-grid">
+
+      <div class="security-card">
+        <div class="security-icon">🔒</div>
+        <div>
+          <h4>Password Status</h4>
+          <p>Your account password was last updated <strong>18 days ago</strong>.</p>
+        </div>
+      </div>
+
+      <div class="security-card">
+        <div class="security-icon">📱</div>
+        <div>
+          <h4>Last Login</h4>
+          <p>Today at <strong>09:45 AM</strong> from Chrome on Windows.</p>
+        </div>
+      </div>
+
+      <div class="security-card">
+        <div class="security-icon">🛡️</div>
+        <div>
+          <h4>Account Status</h4>
+          <p>Your Stackly account is <strong style="color:#16a34a;">Secure</strong>.</p>
+        </div>
+      </div>
+
+      <div class="security-card">
+        <div class="security-icon">📧</div>
+        <div>
+          <h4>Email Verified</h4>
+          <p>Your email address has been successfully verified.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
     </section>
 
   </main>
@@ -451,6 +1203,12 @@ tbody tr:hover{background:var(--light)}
   const role = localStorage.getItem("userRole");
   const email = localStorage.getItem("userEmail");
   const storedName = localStorage.getItem("userName");
+
+  const topbarEmailEl = document.getElementById('topbarEmail');
+
+if (topbarEmailEl) {
+    topbarEmailEl.value = email;
+}
 
   if (!email || role !== "admin") {
     window.location.href = "index.html";
@@ -559,6 +1317,8 @@ new Chart(ctx, {
     }
   }
 });
+
+
 </script>
 </body>
 </html>
