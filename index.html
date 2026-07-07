@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <title>Stackly – Find Your Next Home With Confidence</title>
 <style>
 /* Inlined from local site stylesheet(s). */
@@ -363,11 +364,99 @@ section{padding:80px 0;position:relative}
 .cc-btn:hover{background:var(--grad);color:#fff;border-color:transparent;transform:translateY(-2px);box-shadow:0 8px 20px rgba(239, 71, 111,.35)}
 
 /* ===================== STATS BAND ===================== */
-#stats{background:var(--grad);padding:60px 0}
-.stats-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
-.stat-block .num{font-family:'Raleway',sans-serif;font-size:2.8rem;font-weight:900;color:#fff}
-.stat-block .lab{font-size:.85rem;color:rgba(255,255,255,.8);margin-top:4px}
-.stat-block .ico{font-size:2rem;margin-bottom:8px}
+/* ===================== STATS SECTION ===================== */
+
+#stats{
+    background: linear-gradient(135deg,#2563eb,#7c3aed,#ef476f);
+    padding:80px 0;
+}
+
+.stats-inner{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.stat-block{
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+    padding:35px 20px;
+    border-radius:22px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.18);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    transition:all .45s cubic-bezier(.175,.885,.32,1.275);
+    cursor:pointer;
+}
+
+/* Shine Effect */
+.stat-block::before{
+    content:"";
+    position:absolute;
+    top:-140%;
+    left:-60%;
+    width:60%;
+    height:300%;
+    background:rgba(255,255,255,.25);
+    transform:rotate(25deg);
+    transition:.8s;
+}
+
+.stat-block:hover::before{
+    left:130%;
+}
+
+/* Hover */
+.stat-block:hover{
+    transform:translateY(-15px) scale(1.05);
+    background:rgba(255,255,255,.18);
+    border-color:rgba(255,255,255,.45);
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.25),
+        0 0 30px rgba(255,255,255,.25);
+}
+
+.stat-block .ico{
+    font-size:2.3rem;
+    margin-bottom:14px;
+    transition:.4s;
+}
+
+.stat-block:hover .ico{
+    transform:scale(1.25) rotate(12deg);
+}
+
+.stat-block .num{
+    font-size:2.8rem;
+    font-weight:900;
+    color:#fff;
+    transition:.4s;
+}
+
+.stat-block:hover .num{
+    color:#ffe66d;
+    text-shadow:0 0 18px rgba(255,230,109,.8);
+    transform:scale(1.08);
+}
+
+.stat-block .lab{
+    margin-top:8px;
+    color:rgba(255,255,255,.9);
+    font-size:.9rem;
+    letter-spacing:.5px;
+    transition:.35s;
+}
+
+.stat-block:hover .lab{
+    color:#fff;
+    letter-spacing:1px;
+}
+
+.stat-block:active{
+    transform:scale(.96);
+}
 /* ===============================
    STATS RESPONSIVE
 ================================ */
@@ -487,8 +576,59 @@ section{padding:80px 0;position:relative}
 /* ===================== TESTIMONIALS ===================== */
 #testimonials{background:var(--light)}
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.testi-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:28px;transition:all .35s ease}
-.testi-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(239, 71, 111,.1);border-color:rgba(239, 71, 111,.2)}
+.testi-card{
+    position:relative;
+    overflow:hidden;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:28px;
+    transition:all .45s cubic-bezier(.175,.885,.32,1.275);
+    cursor:pointer;
+}
+
+/* Top Gradient Line */
+.testi-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:50%;
+    width:0;
+    height:4px;
+    background:var(--grad);
+    transition:.45s ease;
+    transform:translateX(-50%);
+    border-radius:0 0 20px 20px;
+}
+
+/* Glow Background */
+.testi-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at top right,
+        rgba(239,71,111,.08),
+        transparent 70%);
+    opacity:0;
+    transition:.4s;
+    pointer-events:none;
+}
+
+.testi-card:hover::before{
+    width:100%;
+}
+
+.testi-card:hover::after{
+    opacity:1;
+}
+
+.testi-card:hover{
+    transform:translateY(-12px);
+    border-color:rgba(239,71,111,.25);
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.12),
+        0 8px 20px rgba(239,71,111,.10);
+}
 .tq{font-size:2.8rem;color:rgba(239, 71, 111,.2);font-family:Georgia,serif;line-height:1;margin-bottom:10px}
 .testi-stars{color:var(--yellow);font-size:.78rem;letter-spacing:2px;margin-bottom:14px}
 .testi-text{font-size:.86rem;color:var(--gray);line-height:1.75;margin-bottom:20px;font-style:italic}
@@ -567,9 +707,14 @@ section{padding:80px 0;position:relative}
 
 /* ===================== FOOTER ===================== */
 footer{background:var(--navy);padding:70px 0 0}
-.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px}
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr 1.3fr;
+    gap:50px;
+    align-items:start;
+}
 .fg-brand .nav-logo-text{color:#fff;font-size:1.4rem}
-.fg-brand p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.75;margin:14px 0 22px;max-width:280px}
+.fg-brand p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.75;margin:5px 0 20px;max-width:100%}
 .foot-soc{display:flex;gap:8px}
 .fsoc{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:rgba(255,255,255,.6);cursor:pointer;text-decoration:none;transition:all .25s}
 .fsoc:hover{background:var(--orange);border-color:var(--orange);color:#fff;transform:translateY(-3px)}
@@ -578,7 +723,7 @@ footer{background:var(--navy);padding:70px 0 0}
 .fg-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
 .fg-col ul li a{font-size:.82rem;color:rgba(255,255,255,.5);text-decoration:none;transition:all .2s;display:flex;align-items:center;gap:6px}
 .fg-col ul li a:hover{color:var(--orange);padding-left:6px}
-.fg-col ul li a::before{content:'â€º';color:var(--orange);opacity:0;transition:opacity .2s}
+.fg-col ul li a::before{color:var(--orange);opacity:0;transition:opacity .2s}
 .fg-col ul li a:hover::before{opacity:1}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;display:flex;justify-content:space-between;align-items:center}
 .foot-bottom p{font-size:.8rem;color:rgba(255,255,255,.4)}
@@ -2221,9 +2366,17 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
           <img src="./gallery/home-page-16.webp" alt="Alexa Turner">
           <div class="tc-overlay">
             <div class="tc-socials">
-              <a href="404.html" class="tc-soc">f</a>
-              <a href="404.html" class="tc-soc">in</a>
-              <a href="404.html" class="tc-soc">tw</a>
+               <a class="fsoc" href="https://facebook.com" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+
+              <a class="fsoc" href="https://instagram.com" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+
+              <a class="fsoc" href="https://x.com" target="_blank" aria-label="X">
+                <i class="fab fa-x-twitter"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -2242,9 +2395,17 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
           <img src="./gallery/home-page-17.webp" alt="Dr. Sarah Chen">
           <div class="tc-overlay">
             <div class="tc-socials">
-              <a href="404.html" class="tc-soc">f</a>
-              <a href="404.html" class="tc-soc">in</a>
-              <a href="404.html" class="tc-soc">gh</a>
+               <a class="fsoc" href="https://facebook.com" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+
+              <a class="fsoc" href="https://instagram.com" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+
+              <a class="fsoc" href="https://x.com" target="_blank" aria-label="X">
+                <i class="fab fa-x-twitter"></i>
+                </a>
             </div>
           </div>
         </div>
@@ -2263,9 +2424,17 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
           <img src="./gallery/home-page-18.webp" alt="James Kim">
           <div class="tc-overlay">
             <div class="tc-socials">
-              <a href="404.html" class="tc-soc">f</a>
-              <a href="404.html" class="tc-soc">in</a>
-              <a href="404.html" class="tc-soc">tw</a>
+               <a class="fsoc" href="https://facebook.com" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+
+              <a class="fsoc" href="https://instagram.com" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+
+              <a class="fsoc" href="https://x.com" target="_blank" aria-label="X">
+                <i class="fab fa-x-twitter"></i>
+                </a>
             </div>
           </div>
         </div>
@@ -2284,9 +2453,17 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
           <img src="./gallery/home-page-19.webp" alt="Dr. Robert Walsh">
           <div class="tc-overlay">
             <div class="tc-socials">
-              <a href="404.html" class="tc-soc">f</a>
-              <a href="404.html" class="tc-soc">in</a>
-              <a href="404.html" class="tc-soc">yt</a>
+               <a class="fsoc" href="https://facebook.com" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+
+              <a class="fsoc" href="https://instagram.com" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+
+              <a class="fsoc" href="https://x.com" target="_blank" aria-label="X">
+                <i class="fab fa-x-twitter"></i>
+                </a>
             </div>
           </div>
         </div>
@@ -2485,12 +2662,38 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
         </a>
         <p>Stackly is a leading online real estate platform committed to making verified property search simple, transparent, and accessible. Find better properties, book tours, and close with confidence.</p>
         <div class="foot-soc">
-          <a class="fsoc" href="404.html">f</a>
-          <a class="fsoc" href="404.html">in</a>
-          <a class="fsoc" href="404.html">tw</a>
-          <a class="fsoc" href="404.html">yt</a>
-          <a class="fsoc" href="404.html">sk</a>
-        </div>
+  <a class="fsoc" href="https://facebook.com" target="_blank" aria-label="Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+
+  <a class="fsoc" href="https://instagram.com" target="_blank" aria-label="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+
+  <a class="fsoc" href="https://x.com" target="_blank" aria-label="X">
+    <i class="fab fa-x-twitter"></i>
+  </a>
+
+  <a class="fsoc" href="https://youtube.com" target="_blank" aria-label="YouTube">
+    <i class="fab fa-youtube"></i>
+  </a>
+
+  <a class="fsoc" href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+</div>
+      </div>
+      
+      <div class="fg-col">
+      <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
       <div class="fg-col">
         <h4>Property Resources</h4>
@@ -2504,23 +2707,12 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
         </ul>
       </div>
       <div class="fg-col">
-      <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="fg-col">
       <h4>Contact Us</h4>
         <ul class="footer-contact-list">
           <li><span class="fc-icon">📍</span> <a href="404.html">Salem, Tamil Nadu, India</a></li>
           <li><span class="fc-icon">📞</span> <a href="404.html">+91 98765 43210</a></li>
-          <li><span class="fc-icon">✉️</span> <a href="404.html">stackly@property searchplatform.com</a></li>
-          <li><span class="fc-icon">🌐</span> <a href="404.html"> www.stacklyproperty searchplatform.com</a></li>
+          <li><span class="fc-icon">✉️</span> <a href="404.html">luxuryrealestate@stackly.com</a></li>
+          <li><span class="fc-icon">🌐</span> <a href="404.html"> www.luxuryrealestate.com</a></li>
         </ul>
       </div>
     </div>

@@ -1654,7 +1654,10 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
         <p>Sign in to access your dashboard</p>
       </div>
 
-      <form onsubmit="handleLogin(event)">
+      <!-- Inline error banner for invalid credentials / role mismatch (added, matches existing look) -->
+      <div id="loginError" style="display:none;background:rgba(239,71,111,.15);border:1px solid rgba(239,71,111,.4);color:#fff;font-size:.8rem;font-weight:600;padding:10px 14px;border-radius:10px;margin-bottom:18px;"></div>
+
+      <form id="loginForm" onsubmit="handleLogin(event)">
 
         <!-- Role Selection -->
         <div class="role-selector">
@@ -1715,7 +1718,7 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
 
         <!-- Footer Info -->
         <div class="login-footer">
-          Don't have an account? <a href="signup.html">Book Tour</a>
+          Don't have an account? <a href="signup.html">Sign Up</a>
         </div>
       </form>
     </div>
@@ -1747,29 +1750,30 @@ if (backHome) backHome.addEventListener('click', (e) => handleTransition(e, back
 /* ===== LOGIN FLOW ===== */
 const handleLogin = (e) => {
   e.preventDefault();
-  const emailVal = document.getElementById('email').value;
+
+  const emailVal = document.getElementById('email').value.trim();
   const roleVal = document.querySelector('input[name="role"]:checked').value;
-  
+
+  // Gmail mundu unna username
+  const userName = emailVal.split('@')[0];
+
+  // Store data
   localStorage.setItem('userEmail', emailVal);
+  localStorage.setItem('userName', userName);
   localStorage.setItem('userRole', roleVal);
-  
-  const destination = roleVal === 'admin' ? 'admin-dashboard.html' : 'customer-dashboard.html';
+
+  // Redirect
+  const destination =
+    roleVal === 'admin'
+      ? 'admin-dashboard.html'
+      : 'customer-dashboard.html';
+
   handleTransition(null, destination);
 };
 
 const handleSocialLogin = (provider) => {
   window.location.href = '404.html';
 };
-
-/* ===== CURSOR ===== */
-const cd=document.getElementById('cur-dot'),cr=document.getElementById('cur-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
-(function ac(){cd.style.left=mx+'px';cd.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(ac)})();
-document.querySelectorAll('a,button,.btn-social-login').forEach(el=>{
-  el.addEventListener('mouseenter',()=>cr.classList.add('big'));
-  el.addEventListener('mouseleave',()=>cr.classList.remove('big'));
-});
 </script>
 </body>
 </html>

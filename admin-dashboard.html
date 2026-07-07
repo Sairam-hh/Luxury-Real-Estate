@@ -30,16 +30,18 @@ body{font-family:'Poppins','Segoe UI',Arial,sans-serif;background:var(--light);c
 .app{display:grid;grid-template-columns:264px 1fr;min-height:100vh}
 
 /* ===== SIDEBAR ===== */
-.sidebar{background:linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;display:flex;flex-direction:column;padding:26px 20px;position:sticky;top:0;height:100vh}
-.sb-logo{display:flex;align-items:center;gap:10px;margin-bottom:34px;padding:0 4px}
-.sb-logo img{height:100px;width:auto;object-fit:contain}
-.sb-role-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:99px;padding:5px 12px;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:26px;width:fit-content}
-.sb-nav{list-style:none;display:flex;flex-direction:column;gap:4px;flex:1}
-.sb-nav a{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.65);text-decoration:none;font-size:.86rem;font-weight:600;padding:11px 14px;border-radius:12px;transition:all .25s}
+.sidebar{background:linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;display:flex;flex-direction:column;padding:26px 20px;position:sticky;top:0;height:100vh;overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.25) transparent}
+.sidebar::-webkit-scrollbar{width:6px}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:99px}
+.sb-logo{display:flex;align-items:center;gap:10px;margin-bottom:24px;padding:0 4px;flex-shrink:0}
+.sb-logo img{height:38px;width:auto;object-fit:contain}
+.sb-role-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:99px;padding:5px 12px;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:26px;width:fit-content;flex-shrink:0}
+.sb-nav{list-style:none;display:flex;flex-direction:column;gap:4px;flex:1 0 auto}
+.sb-nav a{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.65);text-decoration:none;font-size:.86rem;font-weight:600;padding:11px 14px;border-radius:12px;transition:all .25s;cursor:pointer}
 .sb-nav a .ico{font-size:1.05rem;width:20px;text-align:center}
 .sb-nav a:hover{background:rgba(255,255,255,.06);color:#fff}
 .sb-nav a.active{background:var(--grad);color:#fff;box-shadow:0 8px 20px rgba(255,77,141,.35)}
-.sb-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:16px;margin-top:16px}
+.sb-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:16px;margin-top:16px;flex-shrink:0}
 .sb-logout{display:flex;align-items:center;gap:12px;width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.75);padding:11px 14px;border-radius:12px;font-size:.84rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .25s}
 .sb-logout:hover{background:rgba(255,77,141,.15);border-color:var(--pink);color:#fff}
 
@@ -75,6 +77,7 @@ body{font-family:'Poppins','Segoe UI',Arial,sans-serif;background:var(--light);c
 
 /* ===== CHART + PANEL ===== */
 .grid-2{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;margin-bottom:26px;align-items:start}
+.grid-2.single-col{grid-template-columns:1fr}
 .panel{background:#fff;border:1px solid var(--border);border-radius:18px;padding:24px}
 .panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
 .panel-head h2{font-size:1.02rem;font-weight:800;color:var(--navy)}
@@ -111,9 +114,26 @@ tbody tr:hover{background:var(--light)}
 .row-actions button{width:30px;height:30px;border-radius:8px;border:1px solid var(--border);background:#fff;cursor:pointer;font-size:.82rem;transition:all .2s}
 .row-actions button:hover{border-color:var(--pink);background:var(--pink-light)}
 
+/* ===== AGENTS ===== */
+.agent-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.agent-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;text-align:center;transition:all .3s}
+.agent-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(37,99,235,.1)}
+.agent-card img{width:64px;height:64px;border-radius:50%;object-fit:cover;margin-bottom:10px}
+.agent-card h4{font-size:.86rem;font-weight:700;color:var(--navy)}
+.agent-card span{font-size:.72rem;color:var(--gray);display:block;margin-top:2px}
+.agent-card .agent-stats{margin-top:10px;font-size:.72rem;color:var(--teal);font-weight:700}
+
+/* ===== SETTINGS ===== */
+.settings-form{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:640px}
+.settings-form label{display:flex;flex-direction:column;gap:6px;font-size:.78rem;font-weight:700;color:var(--gray)}
+.settings-form input{border:1.5px solid var(--border);border-radius:10px;padding:10px 12px;font-size:.84rem;font-family:inherit;outline:none}
+.settings-form input:focus{border-color:var(--pink)}
+.settings-save{margin-top:18px;background:var(--grad);color:#fff;border:none;padding:11px 22px;border-radius:12px;font-size:.84rem;font-weight:700;cursor:pointer;font-family:inherit}
+
 @media(max-width:1100px){
   .stats-row{grid-template-columns:1fr 1fr}
   .grid-2{grid-template-columns:1fr}
+  .agent-grid{grid-template-columns:1fr 1fr}
 }
 /* ===== MOBILE HAMBURGER + CLOSE (hidden on desktop) ===== */
 .hamburger{display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:42px;height:42px;min-width:42px;border-radius:12px;border:1.5px solid var(--border);background:#fff;cursor:pointer}
@@ -138,10 +158,12 @@ tbody tr:hover{background:var(--light)}
   .sb-nav a span.txt{display:inline}
   .sb-bottom{display:block}
   .main{padding:20px}
+  .agent-grid{grid-template-columns:1fr}
 }
 @media(max-width:560px){
   .stats-row{grid-template-columns:1fr}
   .tb-search{display:none}
+  .settings-form{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -157,12 +179,12 @@ tbody tr:hover{background:var(--light)}
     </a>
     <span class="sb-role-tag">🧑‍💼 Admin</span>
     <ul class="sb-nav">
-      <li><a href="#overview" class="active"><span class="ico">📊</span><span class="txt">Overview</span></a></li>
-      <li><a href="#listings"><span class="ico">🏘️</span><span class="txt">Listings</span></a></li>
-      <li><a href="#leads"><span class="ico">📞</span><span class="txt">Leads &amp; Inquiries</span></a></li>
-      <li><a href="#agents"><span class="ico">🧑‍🏫</span><span class="txt">Agents</span></a></li>
-      <li><a href="#analytics"><span class="ico">📈</span><span class="txt">Analytics</span></a></li>
-      <li><a href="#settings"><span class="ico">⚙️</span><span class="txt">Settings</span></a></li>
+      <li><a href="#overview" class="active" data-view="overview"><span class="ico">📊</span><span class="txt">Overview</span></a></li>
+      <li><a href="#listings" data-view="listings"><span class="ico">🏘️</span><span class="txt">Listings</span></a></li>
+      <li><a href="#leads" data-view="leads"><span class="ico">📞</span><span class="txt">Leads &amp; Inquiries</span></a></li>
+      <li><a href="#agents" data-view="agents"><span class="ico">🧑‍🏫</span><span class="txt">Agents</span></a></li>
+      <li><a href="#analytics" data-view="analytics"><span class="ico">📈</span><span class="txt">Analytics</span></a></li>
+      <li><a href="#settings" data-view="settings"><span class="ico">⚙️</span><span class="txt">Settings</span></a></li>
     </ul>
     <div class="sb-bottom">
       <button class="sb-logout" onclick="handleLogout()"><span class="ico">🚪</span> Logout</button>
@@ -194,7 +216,8 @@ tbody tr:hover{background:var(--light)}
       </div>
     </div>
 
-    <section id="overview">
+    <!-- OVERVIEW VIEW -->
+    <section id="overview" class="view-section">
       <div class="stats-row">
         <div class="stat-card">
           <div class="stat-top"><div class="stat-ico blue">🏘️</div></div>
@@ -223,21 +246,27 @@ tbody tr:hover{background:var(--light)}
       </div>
     </section>
 
-    <div class="grid-2">
-      <section id="analytics" class="panel">
-        <div class="panel-head">
-          <h2>Inquiries Overview</h2>
-          <a href="#" class="panel-link">Export →</a>
+    <!-- ANALYTICS VIEW -->
+    <section id="analytics" class="view-section">
+      <div class="grid-2 single-col">
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Inquiries Overview</h2>
+            <a href="#" class="panel-link">Export →</a>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="inquiryChart"></canvas>
+          </div>
         </div>
-        <div class="chart-wrap">
-          <canvas id="inquiryChart"></canvas>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="leads" class="panel">
+    <!-- LEADS VIEW -->
+    <section id="leads" class="view-section">
+      <div class="panel">
         <div class="panel-head">
           <h2>Recent Leads</h2>
-          <a href="#" class="panel-link">View All →</a>
+          <a href="404.html" class="panel-link">View All →</a>
         </div>
         <div class="lead-item">
           <img class="lead-avatar" src="https://i.pravatar.cc/80?img=45" alt="Lead">
@@ -271,81 +300,144 @@ tbody tr:hover{background:var(--light)}
           </div>
           <span class="lead-tag hot">Hot</span>
         </div>
-      </section>
-    </div>
-
-    <section id="listings" class="panel">
-      <div class="panel-head">
-        <h2>Property Listings</h2>
-        <a href="#" class="panel-link">Manage All →</a>
       </div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Property</th>
-              <th>Location</th>
-              <th>Price</th>
-              <th>Status</th>
-              <th>Views</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="prop-cell">
-                  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=200&auto=format&fit=crop&q=60" alt="">
-                  <div><strong>Sunrise Villa</strong><span>3 Bed · 2 Bath</span></div>
-                </div>
-              </td>
-              <td>Jubilee Hills, HYD</td>
-              <td>₹1.2 Cr</td>
-              <td><span class="status-pill active">Active</span></td>
-              <td>1,204</td>
-              <td class="row-actions"><button>✏️</button><button>🗑️</button></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="prop-cell">
-                  <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=200&auto=format&fit=crop&q=60" alt="">
-                  <div><strong>Lakeview Residency</strong><span>2 Bed · 2 Bath</span></div>
-                </div>
-              </td>
-              <td>Gachibowli, HYD</td>
-              <td>₹78 L</td>
-              <td><span class="status-pill pending">Pending</span></td>
-              <td>876</td>
-              <td class="row-actions"><button>✏️</button><button>🗑️</button></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="prop-cell">
-                  <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=200&auto=format&fit=crop&q=60" alt="">
-                  <div><strong>Maple Row Homes</strong><span>3 Bed · 3 Bath</span></div>
-                </div>
-              </td>
-              <td>Kondapur, HYD</td>
-              <td>₹95 L</td>
-              <td><span class="status-pill active">Active</span></td>
-              <td>1,532</td>
-              <td class="row-actions"><button>✏️</button><button>🗑️</button></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="prop-cell">
-                  <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=200&auto=format&fit=crop&q=60" alt="">
-                  <div><strong>Urban Nest Studio</strong><span>1 Bed · 1 Bath</span></div>
-                </div>
-              </td>
-              <td>Madhapur, HYD</td>
-              <td>₹42 L</td>
-              <td><span class="status-pill sold">Sold</span></td>
-              <td>2,041</td>
-              <td class="row-actions"><button>✏️</button><button>🗑️</button></td>
-            </tr>
-          </tbody>
-        </table>
+    </section>
+
+    <!-- LISTINGS VIEW -->
+    <section id="listings" class="view-section">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Property Listings</h2>
+          <a href="404.html" class="panel-link">Manage All →</a>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Location</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Views</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="prop-cell">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=200&auto=format&fit=crop&q=60" alt="">
+                    <div><strong>Sunrise Villa</strong><span>3 Bed · 2 Bath</span></div>
+                  </div>
+                </td>
+                <td>Jubilee Hills, HYD</td>
+                <td>₹1.2 Cr</td>
+                <td><span class="status-pill active">Active</span></td>
+                <td>1,204</td>
+                <td class="row-actions"><button>✏️</button><button>🗑️</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="prop-cell">
+                    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=200&auto=format&fit=crop&q=60" alt="">
+                    <div><strong>Lakeview Residency</strong><span>2 Bed · 2 Bath</span></div>
+                  </div>
+                </td>
+                <td>Gachibowli, HYD</td>
+                <td>₹78 L</td>
+                <td><span class="status-pill pending">Pending</span></td>
+                <td>876</td>
+                <td class="row-actions"><button>✏️</button><button>🗑️</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="prop-cell">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=200&auto=format&fit=crop&q=60" alt="">
+                    <div><strong>Maple Row Homes</strong><span>3 Bed · 3 Bath</span></div>
+                  </div>
+                </td>
+                <td>Kondapur, HYD</td>
+                <td>₹95 L</td>
+                <td><span class="status-pill active">Active</span></td>
+                <td>1,532</td>
+                <td class="row-actions"><button>✏️</button><button>🗑️</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="prop-cell">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=200&auto=format&fit=crop&q=60" alt="">
+                    <div><strong>Urban Nest Studio</strong><span>1 Bed · 1 Bath</span></div>
+                  </div>
+                </td>
+                <td>Madhapur, HYD</td>
+                <td>₹42 L</td>
+                <td><span class="status-pill sold">Sold</span></td>
+                <td>2,041</td>
+                <td class="row-actions"><button>✏️</button><button>🗑️</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- AGENTS VIEW -->
+    <section id="agents" class="view-section">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Agents</h2>
+          <a href="404.html" class="panel-link">+ Add Agent</a>
+        </div>
+        <div class="agent-grid">
+          <div class="agent-card">
+            <img src="https://i.pravatar.cc/100?img=12" alt="Agent">
+            <h4>Ravi Kumar</h4>
+            <span>Senior Agent</span>
+            <div class="agent-stats">14 active deals</div>
+          </div>
+          <div class="agent-card">
+            <img src="https://i.pravatar.cc/100?img=32" alt="Agent">
+            <h4>Sneha Reddy</h4>
+            <span>Agent</span>
+            <div class="agent-stats">9 active deals</div>
+          </div>
+          <div class="agent-card">
+            <img src="https://i.pravatar.cc/100?img=21" alt="Agent">
+            <h4>Arvind Rao</h4>
+            <span>Agent</span>
+            <div class="agent-stats">6 active deals</div>
+          </div>
+          <div class="agent-card">
+            <img src="https://i.pravatar.cc/100?img=48" alt="Agent">
+            <h4>Divya Menon</h4>
+            <span>Junior Agent</span>
+            <div class="agent-stats">3 active deals</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SETTINGS VIEW -->
+    <section id="settings" class="view-section">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Account Settings</h2>
+        </div>
+        <div class="settings-form">
+          <label>Full Name
+            <input type="text" id="settingsName" placeholder="Admin name">
+          </label>
+          <label>Email
+            <input type="email" id="settingsEmail" placeholder="you@stackly.com" readonly>
+          </label>
+          <label>Phone
+            <input type="text" placeholder="+91 90000 00000">
+          </label>
+          <label>Role
+            <input type="text" value="Admin" readonly>
+          </label>
+        </div>
+        <button class="settings-save">Save Changes</button>
       </div>
     </section>
 
@@ -356,23 +448,34 @@ tbody tr:hover{background:var(--light)}
 <script>
 /* ===== AUTH GUARD ===== */
 (function () {
-  const role = localStorage.getItem('userRole');
-  const email = localStorage.getItem('userEmail');
-  if (!email || role !== 'admin') {
-    window.location.href = 'index.html';
+  const role = localStorage.getItem("userRole");
+  const email = localStorage.getItem("userEmail");
+  const storedName = localStorage.getItem("userName");
+
+  if (!email || role !== "admin") {
+    window.location.href = "index.html";
     return;
   }
-  const namePart = email.split('@')[0];
-  document.getElementById('greetName').textContent = ' · ' + namePart;
-  document.getElementById('avatarInitial').textContent = namePart.charAt(0).toUpperCase();
+
+  const displayName = storedName || email.split("@")[0];
+
+  document.getElementById("greetName").textContent = " · " + displayName;
+  document.getElementById("avatarInitial").textContent =
+    displayName.charAt(0).toUpperCase();
+
+  const settingsEmailEl = document.getElementById("settingsEmail");
+  const settingsNameEl = document.getElementById("settingsName");
+
+  if (settingsEmailEl) settingsEmailEl.value = email;
+  if (settingsNameEl) settingsNameEl.value = displayName;
 })();
 
 function handleLogout() {
-  localStorage.removeItem('userEmail');
-  localStorage.removeItem('userRole');
-  window.location.href = 'index.html';
+  localStorage.removeItem("userEmail");
+  localStorage.removeItem("userName");
+  localStorage.removeItem("userRole");
+  window.location.href = "index.html";
 }
-
 /* ===== MOBILE SIDEBAR TOGGLE ===== */
 const sidebarEl = document.getElementById('sidebar');
 const overlayEl = document.getElementById('sbOverlay');
@@ -392,9 +495,33 @@ function closeSidebar() {
 hamburgerBtn.addEventListener('click', openSidebar);
 sbCloseBtn.addEventListener('click', closeSidebar);
 overlayEl.addEventListener('click', closeSidebar);
-document.querySelectorAll('.sb-nav a').forEach(a => a.addEventListener('click', () => {
-  if (window.innerWidth <= 820) closeSidebar();
-}));
+
+/* ===== SIDEBAR NAV -> VIEW SWITCHING ===== */
+const navLinks = document.querySelectorAll('.sb-nav a[data-view]');
+const viewSections = document.querySelectorAll('.main > .view-section');
+
+function showView(id) {
+  viewSections.forEach(sec => {
+    sec.style.display = (sec.id === id) ? '' : 'none';
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('data-view') === id);
+  });
+  document.querySelector('.main').scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+navLinks.forEach(a => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    const id = a.getAttribute('data-view');
+    showView(id);
+    if (window.innerWidth <= 820) closeSidebar();
+  });
+});
+
+/* default view on load (supports deep-linking via #hash too) */
+const initialView = (window.location.hash || '#overview').slice(1);
+showView(document.getElementById(initialView) ? initialView : 'overview');
 
 /* ===== CHART ===== */
 const ctx = document.getElementById('inquiryChart').getContext('2d');

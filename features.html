@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 <title>Features - Stackly</title>
 <style>
 /* Inlined from local site stylesheet(s). */
@@ -567,9 +569,14 @@ section{padding:80px 0;position:relative}
 
 /* ===================== FOOTER ===================== */
 footer{background:var(--navy);padding:70px 0 0}
-.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px}
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr 1.3fr;
+    gap:50px;
+    align-items:start;
+}
 .fg-brand .nav-logo-text{color:#fff;font-size:1.4rem}
-.fg-brand p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.75;margin:14px 0 22px;max-width:280px}
+.fg-brand p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.75;margin:5px 0 20px;max-width:100%}
 .foot-soc{display:flex;gap:8px}
 .fsoc{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:rgba(255,255,255,.6);cursor:pointer;text-decoration:none;transition:all .25s}
 .fsoc:hover{background:var(--orange);border-color:var(--orange);color:#fff;transform:translateY(-3px)}
@@ -577,8 +584,7 @@ footer{background:var(--navy);padding:70px 0 0}
 .fg-col h4::after{content:'';position:absolute;bottom:0;left:0;width:24px;height:2px;background:var(--orange);border-radius:99px}
 .fg-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
 .fg-col ul li a{font-size:.82rem;color:rgba(255,255,255,.5);text-decoration:none;transition:all .2s;display:flex;align-items:center;gap:6px}
-.fg-col ul li a:hover{color:var(--orange);padding-left:6px}
-.fg-col ul li a::before{content:'â€º';color:var(--orange);opacity:0;transition:opacity .2s}
+.fg-col ul li a:hover{color:var(--orange);opacity:0;transition:opacity .2s}
 .fg-col ul li a:hover::before{opacity:1}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;display:flex;justify-content:space-between;align-items:center}
 .foot-bottom p{font-size:.8rem;color:rgba(255,255,255,.4)}
@@ -1551,6 +1557,13 @@ body.no-scroll, html.no-scroll {
 /* Local font stack fallback after removing external font CSS. */
 body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Arial, sans-serif; }
 
+
+.spotlight-left{
+  
+    display:flex;
+    align-items:flex-start;
+}
+
 </style>
 <script>
 (function () {
@@ -1768,7 +1781,7 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
   <div class="container">
     <div class="grid-split-1-11" style="gap: 70px; align-items: center;">
       <div class="spotlight-left">
-        <img src="./gallery/features-page-2.webp" alt="Data Analytics Spotlight" style="width: 100%; border-radius: 24px; box-shadow: var(--shadow); object-fit: cover; aspect-ratio: 4/5;">
+        <img src="./gallery/features-page-2.webp" alt="Data Analytics Spotlight" style="width: 100%; border-radius: 24px; box-shadow: var(--shadow); object-fit: cover; height:350px;">
       </div>
       <div class="spotlight-right">
         <div class="sec-eyebrow">Spotlight Feature</div>
@@ -1890,12 +1903,38 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
         </a>
         <p>Stackly is a leading online real estate platform committed to making verified property search simple, transparent, and accessible. Find better properties, book tours, and close with confidence.</p>
         <div class="foot-soc">
-          <a class="fsoc" href="404.html">f</a>
-          <a class="fsoc" href="404.html">in</a>
-          <a class="fsoc" href="404.html">tw</a>
-          <a class="fsoc" href="404.html">yt</a>
-          <a class="fsoc" href="404.html">sk</a>
-        </div>
+  <a class="fsoc" href="https://facebook.com" target="_blank" aria-label="Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+
+  <a class="fsoc" href="https://instagram.com" target="_blank" aria-label="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+
+  <a class="fsoc" href="https://x.com" target="_blank" aria-label="X">
+    <i class="fab fa-x-twitter"></i>
+  </a>
+
+  <a class="fsoc" href="https://youtube.com" target="_blank" aria-label="YouTube">
+    <i class="fab fa-youtube"></i>
+  </a>
+
+  <a class="fsoc" href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+</div>
+      </div>
+      
+      <div class="fg-col">
+      <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
       <div class="fg-col">
         <h4>Property Resources</h4>
@@ -1909,23 +1948,12 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
         </ul>
       </div>
       <div class="fg-col">
-      <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="fg-col">
       <h4>Contact Us</h4>
-         <ul class="footer-contact-list">
+        <ul class="footer-contact-list">
           <li><span class="fc-icon">📍</span> <a href="404.html">Salem, Tamil Nadu, India</a></li>
           <li><span class="fc-icon">📞</span> <a href="404.html">+91 98765 43210</a></li>
-          <li><span class="fc-icon">✉️</span> <a href="404.html">stackly@property searchplatform.com</a></li>
-          <li><span class="fc-icon">🌐</span> <a href="404.html"> www.stacklyproperty searchplatform.com</a></li>
+          <li><span class="fc-icon">✉️</span> <a href="404.html">luxuryrealestate@stackly.com</a></li>
+          <li><span class="fc-icon">🌐</span> <a href="404.html"> www.luxuryrealestate.com</a></li>
         </ul>
       </div>
     </div>
@@ -1939,6 +1967,7 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
     </div>
   </div>
 </footer>
+
 
 <script>
 /* ===== LOADER TRANSITION ===== */

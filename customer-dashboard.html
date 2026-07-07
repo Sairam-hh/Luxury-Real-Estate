@@ -30,16 +30,18 @@ body{font-family:'Poppins','Segoe UI',Arial,sans-serif;background:var(--light);c
 .app{display:grid;grid-template-columns:264px 1fr;min-height:100vh}
 
 /* ===== SIDEBAR ===== */
-.sidebar{background:linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;display:flex;flex-direction:column;padding:26px 20px;position:sticky;top:0;height:100vh}
-.sb-logo{display:flex;align-items:center;gap:10px;margin-bottom:34px;padding:0 4px}
-.sb-logo img{height:100px;width:auto;object-fit:contain}
-.sb-role-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:99px;padding:5px 12px;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:26px;width:fit-content}
-.sb-nav{list-style:none;display:flex;flex-direction:column;gap:4px;flex:1}
-.sb-nav a{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.65);text-decoration:none;font-size:.86rem;font-weight:600;padding:11px 14px;border-radius:12px;transition:all .25s}
+.sidebar{background:linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;display:flex;flex-direction:column;padding:26px 20px;position:sticky;top:0;height:100vh;overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.25) transparent}
+.sidebar::-webkit-scrollbar{width:6px}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:99px}
+.sb-logo{display:flex;align-items:center;gap:10px;margin-bottom:24px;padding:0 4px;flex-shrink:0}
+.sb-logo img{height:38px;width:auto;object-fit:contain}
+.sb-role-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:99px;padding:5px 12px;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:26px;width:fit-content;flex-shrink:0}
+.sb-nav{list-style:none;display:flex;flex-direction:column;gap:4px;flex:1 0 auto}
+.sb-nav a{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.65);text-decoration:none;font-size:.86rem;font-weight:600;padding:11px 14px;border-radius:12px;transition:all .25s;cursor:pointer}
 .sb-nav a .ico{font-size:1.05rem;width:20px;text-align:center}
 .sb-nav a:hover{background:rgba(255,255,255,.06);color:#fff}
 .sb-nav a.active{background:var(--grad);color:#fff;box-shadow:0 8px 20px rgba(255,77,141,.35)}
-.sb-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:16px;margin-top:16px}
+.sb-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:16px;margin-top:16px;flex-shrink:0}
 .sb-logout{display:flex;align-items:center;gap:12px;width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.75);padding:11px 14px;border-radius:12px;font-size:.84rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .25s}
 .sb-logout:hover{background:rgba(255,77,141,.15);border-color:var(--pink);color:#fff}
 
@@ -70,6 +72,7 @@ body{font-family:'Poppins','Segoe UI',Arial,sans-serif;background:var(--light);c
 
 /* ===== SECTION CARD ===== */
 .grid-2{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;margin-bottom:26px;align-items:start}
+.grid-2.single-col{grid-template-columns:1fr}
 .panel{background:#fff;border:1px solid var(--border);border-radius:18px;padding:24px}
 .panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
 .panel-head h2{font-size:1.02rem;font-weight:800;color:var(--navy)}
@@ -116,6 +119,13 @@ body{font-family:'Poppins','Segoe UI',Arial,sans-serif;background:var(--light);c
 .doc-card span{font-size:.7rem;color:var(--gray)}
 .doc-dl{font-size:.72rem;font-weight:700;color:var(--pink);text-decoration:none;margin-top:4px}
 
+/* Settings */
+.settings-form{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:640px}
+.settings-form label{display:flex;flex-direction:column;gap:6px;font-size:.78rem;font-weight:700;color:var(--gray)}
+.settings-form input{border:1.5px solid var(--border);border-radius:10px;padding:10px 12px;font-size:.84rem;font-family:inherit;outline:none}
+.settings-form input:focus{border-color:var(--pink)}
+.settings-save{margin-top:18px;background:var(--grad);color:#fff;border:none;padding:11px 22px;border-radius:12px;font-size:.84rem;font-weight:700;cursor:pointer;font-family:inherit}
+
 @media(max-width:1100px){
   .stats-row{grid-template-columns:1fr 1fr}
   .grid-2{grid-template-columns:1fr}
@@ -150,6 +160,7 @@ body{font-family:'Poppins','Segoe UI',Arial,sans-serif;background:var(--light);c
   .stats-row{grid-template-columns:1fr}
   .doc-grid{grid-template-columns:1fr}
   .tb-search{display:none}
+  .settings-form{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -165,12 +176,12 @@ body{font-family:'Poppins','Segoe UI',Arial,sans-serif;background:var(--light);c
     </a>
     <span class="sb-role-tag">🏠 Customer</span>
     <ul class="sb-nav">
-      <li><a href="#overview" class="active"><span class="ico">📊</span><span class="txt">Overview</span></a></li>
-      <li><a href="#listings"><span class="ico">🏡</span><span class="txt">Saved Listings</span></a></li>
-      <li><a href="#tours"><span class="ico">🗓️</span><span class="txt">Tour Requests</span></a></li>
-      <li><a href="#messages"><span class="ico">💬</span><span class="txt">Messages</span></a></li>
-      <li><a href="#documents"><span class="ico">📄</span><span class="txt">Documents</span></a></li>
-      <li><a href="#settings"><span class="ico">⚙️</span><span class="txt">Settings</span></a></li>
+      <li><a href="#overview" class="active" data-view="overview"><span class="ico">📊</span><span class="txt">Overview</span></a></li>
+      <li><a href="#listings" data-view="listings"><span class="ico">🏡</span><span class="txt">Saved Listings</span></a></li>
+      <li><a href="#tours" data-view="tours"><span class="ico">🗓️</span><span class="txt">Tour Requests</span></a></li>
+      <li><a href="#messages" data-view="messages"><span class="ico">💬</span><span class="txt">Messages</span></a></li>
+      <li><a href="#documents" data-view="documents"><span class="ico">📄</span><span class="txt">Documents</span></a></li>
+      <li><a href="#settings" data-view="settings"><span class="ico">⚙️</span><span class="txt">Settings</span></a></li>
     </ul>
     <div class="sb-bottom">
       <button class="sb-logout" onclick="handleLogout()"><span class="ico">🚪</span> Logout</button>
@@ -201,7 +212,8 @@ body{font-family:'Poppins','Segoe UI',Arial,sans-serif;background:var(--light);c
       </div>
     </div>
 
-    <section id="overview">
+    <!-- OVERVIEW VIEW -->
+    <section id="overview" class="view-section">
       <div class="stats-row">
         <div class="stat-card">
           <div class="stat-top"><div class="stat-ico blue">🏡</div></div>
@@ -226,12 +238,12 @@ body{font-family:'Poppins','Segoe UI',Arial,sans-serif;background:var(--light);c
       </div>
     </section>
 
-    <div class="grid-2">
-
-      <section id="listings" class="panel">
+    <!-- SAVED LISTINGS VIEW -->
+    <section id="listings" class="view-section">
+      <div class="panel">
         <div class="panel-head">
           <h2>Saved Listings</h2>
-          <a href="#" class="panel-link">View All →</a>
+          <a href="404.html" class="panel-link">View All →</a>
         </div>
         <div class="listing-grid">
           <div class="listing-card">
@@ -283,12 +295,15 @@ body{font-family:'Poppins','Segoe UI',Arial,sans-serif;background:var(--light);c
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="tours" class="panel">
+    <!-- TOURS VIEW -->
+    <section id="tours" class="view-section">
+      <div class="panel">
         <div class="panel-head">
           <h2>Upcoming Tours</h2>
-          <a href="#" class="panel-link">Schedule →</a>
+          <a href="404.html" class="panel-link">Schedule →</a>
         </div>
         <div class="tour-item">
           <div class="tour-date"><span class="d">14</span><span class="m">Jul</span></div>
@@ -306,10 +321,15 @@ body{font-family:'Poppins','Segoe UI',Arial,sans-serif;background:var(--light);c
           </div>
           <span class="tour-status">Pending</span>
         </div>
+      </div>
+    </section>
 
-        <div class="panel-head" style="margin-top:22px;">
+    <!-- MESSAGES VIEW -->
+    <section id="messages" class="view-section">
+      <div class="panel">
+        <div class="panel-head">
           <h2>Recent Messages</h2>
-          <a href="#" class="panel-link">Inbox →</a>
+          <a href="404.html" class="panel-link">Inbox →</a>
         </div>
         <div class="msg-item">
           <img class="msg-avatar" src="https://i.pravatar.cc/80?img=12" alt="Agent">
@@ -327,34 +347,60 @@ body{font-family:'Poppins','Segoe UI',Arial,sans-serif;background:var(--light);c
           </div>
           <span class="msg-time">1d</span>
         </div>
-      </section>
-
-    </div>
-
-    <section id="documents" class="panel">
-      <div class="panel-head">
-        <h2>Documents</h2>
-        <a href="#" class="panel-link">View All →</a>
       </div>
-      <div class="doc-grid">
-        <div class="doc-card">
-          <div class="doc-ico">📃</div>
-          <h5>Booking Agreement.pdf</h5>
-          <span>Sunrise Villa · 1.2 MB</span>
-          <a href="#" class="doc-dl">Download ⬇</a>
+    </section>
+
+    <!-- DOCUMENTS VIEW -->
+    <section id="documents" class="view-section">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Documents</h2>
+          <a href="404.html" class="panel-link">View All →</a>
         </div>
-        <div class="doc-card">
-          <div class="doc-ico">🧾</div>
-          <h5>Payment Receipt.pdf</h5>
-          <span>Token Amount · 0.4 MB</span>
-          <a href="#" class="doc-dl">Download ⬇</a>
+        <div class="doc-grid">
+          <div class="doc-card">
+            <div class="doc-ico">📃</div>
+            <h5>Booking Agreement.pdf</h5>
+            <span>Sunrise Villa · 1.2 MB</span>
+            <a href="404.html" class="doc-dl">Download ⬇</a>
+          </div>
+          <div class="doc-card">
+            <div class="doc-ico">🧾</div>
+            <h5>Payment Receipt.pdf</h5>
+            <span>Token Amount · 0.4 MB</span>
+            <a href="404.html" class="doc-dl">Download ⬇</a>
+          </div>
+          <div class="doc-card">
+            <div class="doc-ico">📐</div>
+            <h5>Floor Plan.pdf</h5>
+            <span>Lakeview Residency · 2.1 MB</span>
+            <a href="404.html" class="doc-dl">Download ⬇</a>
+          </div>
         </div>
-        <div class="doc-card">
-          <div class="doc-ico">📐</div>
-          <h5>Floor Plan.pdf</h5>
-          <span>Lakeview Residency · 2.1 MB</span>
-          <a href="#" class="doc-dl">Download ⬇</a>
+      </div>
+    </section>
+
+    <!-- SETTINGS VIEW -->
+    <section id="settings" class="view-section">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Account Settings</h2>
         </div>
+        <div class="settings-form">
+          <label>Full Name
+            <input type="text" id="settingsName" placeholder="Your name">
+          </label>
+          <label>Email
+            <input type="email" id="settingsEmail" placeholder="you@example.com" readonly>
+          </label>
+          <label>Phone
+            <input type="text" placeholder="+91 90000 00000">
+          </label>
+          <label>Role
+            <input type="text" value="Customer" readonly>
+          </label>
+        </div>
+        <button class="settings-save">Save Changes</button>
       </div>
     </section>
 
@@ -364,21 +410,33 @@ body{font-family:'Poppins','Segoe UI',Arial,sans-serif;background:var(--light);c
 <script>
 /* ===== AUTH GUARD ===== */
 (function () {
-  const role = localStorage.getItem('userRole');
-  const email = localStorage.getItem('userEmail');
-  if (!email || role !== 'customer') {
-    window.location.href = 'index.html';
+  const role = localStorage.getItem("userRole");
+  const email = localStorage.getItem("userEmail");
+  const storedName = localStorage.getItem("userName");
+
+  if (!email || role !== "customer") {
+    window.location.href = "index.html";
     return;
   }
-  const namePart = email.split('@')[0];
-  document.getElementById('greetName').textContent = ', ' + namePart;
-  document.getElementById('avatarInitial').textContent = namePart.charAt(0).toUpperCase();
+
+  const displayName = storedName || email.split("@")[0];
+
+  document.getElementById("greetName").textContent = " · " + displayName;
+  document.getElementById("avatarInitial").textContent =
+    displayName.charAt(0).toUpperCase();
+
+  const settingsEmailEl = document.getElementById("settingsEmail");
+  const settingsNameEl = document.getElementById("settingsName");
+
+  if (settingsEmailEl) settingsEmailEl.value = email;
+  if (settingsNameEl) settingsNameEl.value = displayName;
 })();
 
 function handleLogout() {
-  localStorage.removeItem('userEmail');
-  localStorage.removeItem('userRole');
-  window.location.href = 'index.html';
+  localStorage.removeItem("userEmail");
+  localStorage.removeItem("userName");
+  localStorage.removeItem("userRole");
+  window.location.href = "index.html";
 }
 
 /* ===== MOBILE SIDEBAR TOGGLE ===== */
@@ -400,9 +458,33 @@ function closeSidebar() {
 hamburgerBtn.addEventListener('click', openSidebar);
 sbCloseBtn.addEventListener('click', closeSidebar);
 overlayEl.addEventListener('click', closeSidebar);
-document.querySelectorAll('.sb-nav a').forEach(a => a.addEventListener('click', () => {
-  if (window.innerWidth <= 820) closeSidebar();
-}));
+
+/* ===== SIDEBAR NAV -> VIEW SWITCHING ===== */
+const navLinks = document.querySelectorAll('.sb-nav a[data-view]');
+const viewSections = document.querySelectorAll('.main > .view-section');
+
+function showView(id) {
+  viewSections.forEach(sec => {
+    sec.style.display = (sec.id === id) ? '' : 'none';
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('data-view') === id);
+  });
+  document.querySelector('.main').scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+navLinks.forEach(a => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    const id = a.getAttribute('data-view');
+    showView(id);
+    if (window.innerWidth <= 820) closeSidebar();
+  });
+});
+
+/* default view on load (supports deep-linking via #hash too) */
+const initialView = (window.location.hash || '#overview').slice(1);
+showView(document.getElementById(initialView) ? initialView : 'overview');
 </script>
 </body>
 </html>

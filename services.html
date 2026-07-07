@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 <title>Services - Stackly</title>
 <style>
 /* Inlined from local site stylesheet(s). */
@@ -567,9 +569,14 @@ section{padding:80px 0;position:relative}
 
 /* ===================== FOOTER ===================== */
 footer{background:var(--navy);padding:70px 0 0}
-.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px}
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr 1.3fr;
+    gap:50px;
+    align-items:start;
+}
 .fg-brand .nav-logo-text{color:#fff;font-size:1.4rem}
-.fg-brand p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.75;margin:14px 0 22px;max-width:280px}
+.fg-brand p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.75;margin:5px 0 20px;max-width:100%}
 .foot-soc{display:flex;gap:8px}
 .fsoc{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:rgba(255,255,255,.6);cursor:pointer;text-decoration:none;transition:all .25s}
 .fsoc:hover{background:var(--orange);border-color:var(--orange);color:#fff;transform:translateY(-3px)}
@@ -578,7 +585,7 @@ footer{background:var(--navy);padding:70px 0 0}
 .fg-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
 .fg-col ul li a{font-size:.82rem;color:rgba(255,255,255,.5);text-decoration:none;transition:all .2s;display:flex;align-items:center;gap:6px}
 .fg-col ul li a:hover{color:var(--orange);padding-left:6px}
-.fg-col ul li a::before{content:'â€º';color:var(--orange);opacity:0;transition:opacity .2s}
+.fg-col ul li a::before{color:var(--orange);opacity:0;transition:opacity .2s}
 .fg-col ul li a:hover::before{opacity:1}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;display:flex;justify-content:space-between;align-items:center}
 .foot-bottom p{font-size:.8rem;color:rgba(255,255,255,.4)}
@@ -1465,6 +1472,99 @@ body.no-scroll, html.no-scroll {
   background: linear-gradient(135deg, rgba(17, 24, 39, 0.72), rgba(37, 99, 235, 0.56), rgba(15, 23, 42, 0.76));
 }
 
+/* ================= PRICING CARD HOVER ================= */
+
+.pricing-card{
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+    background:#fff;
+    transition:all .45s cubic-bezier(.175,.885,.32,1.275);
+}
+
+/* Shine Effect */
+.pricing-card::before{
+    content:"";
+    position:absolute;
+    top:-150%;
+    left:-60%;
+    width:55%;
+    height:320%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+    transform:rotate(25deg);
+    transition:.8s;
+}
+
+.pricing-card:hover::before{
+    left:140%;
+}
+
+/* Soft Glow */
+.pricing-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:20px;
+    background:radial-gradient(circle at top right,
+        rgba(239,71,111,.08),
+        transparent 70%);
+    opacity:0;
+    transition:.4s;
+    pointer-events:none;
+}
+
+.pricing-card:hover::after{
+    opacity:1;
+}
+
+/* Main Hover */
+.pricing-card:hover{
+    transform:translateY(-15px) scale(1.03);
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.15),
+        0 0 25px rgba(239,71,111,.20);
+    border-color:var(--orange)!important;
+}
+
+/* Heading */
+.pricing-card h4{
+    transition:.35s;
+}
+
+.pricing-card:hover h4{
+    color:var(--orange)!important;
+}
+
+/* Price */
+.pricing-card:hover div[style*="font-size: 2.5rem"],
+.pricing-card:hover div[style*="font-size: 2.2rem"]{
+    transform:scale(1.05);
+    transition:.35s;
+}
+
+/* List Animation */
+.pricing-card ul li{
+    transition:.3s;
+}
+
+.pricing-card:hover ul li{
+    transform:translateX(6px);
+}
+
+/* Button */
+.pricing-card button{
+    transition:.35s;
+}
+
+.pricing-card:hover button{
+    transform:scale(1.03);
+    box-shadow:0 10px 25px rgba(239,71,111,.25);
+}
 .feat-card,
 .property-card,
 .blog-card,
@@ -1546,6 +1646,88 @@ body.no-scroll, html.no-scroll {
     color:#fff;
     box-shadow:0 6px 20px rgba(239, 71, 111,.3);
 }
+
+
+.career-img-card{
+    background:var(--light);
+    border:1px solid var(--border);
+    padding:15px;
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    transition:all .45s cubic-bezier(.175,.885,.32,1.275);
+    cursor:pointer;
+}
+
+.career-img{
+    width:100%;
+    border-radius:16px;
+    display:block;
+    object-fit:cover;
+    aspect-ratio:4/3;
+    transition:transform .6s ease;
+}
+
+.career-img-card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 22px 45px rgba(0,0,0,.18);
+}
+
+.career-img-card:hover .career-img{
+    transform:scale(1.08);
+}
+
+/* ===== Career Feature Hover ===== */
+
+.career-feature{
+    padding:18px;
+    border-radius:18px;
+    transition:all .4s ease;
+    cursor:pointer;
+}
+
+.career-feature:hover{
+    background:#fff;
+    transform:translateX(10px) translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.career-feature:hover .career-icon{
+    background:var(--orange);
+    color:#fff;
+    transform:rotate(12deg) scale(1.12);
+    box-shadow:0 10px 20px rgba(239,71,111,.25);
+}
+
+.career-feature .career-icon{
+    transition:all .35s ease;
+}
+
+.career-content{
+    transition:all .35s ease;
+}
+
+.career-feature:hover .career-content{
+    transform:translateX(6px);
+}
+
+.career-content h4{
+    transition:.35s;
+}
+
+.career-content p{
+    transition:.35s;
+}
+
+.career-feature:hover .career-content h4{
+    color:var(--orange) !important;
+}
+
+.career-feature:hover .career-content p{
+    color:var(--navy3) !important;
+}
+
+
 
 
 /* Local font stack fallback after removing external font CSS. */
@@ -1813,7 +1995,7 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
     <div class="grid-split-1-1" style="gap: 60px; align-items: center;">
       
       <div class="rv-l" style="position: relative; order: 2;">
-        <div style="background: var(--light); border: 1px solid var(--border); padding: 15px; border-radius: 24px; box-shadow: var(--shadow);">
+        <div style="background: var(--light); border: 1px solid var(--border); padding: 15px; border-radius: 24px; box-shadow: var(--shadow);" class="career-img-card">
           <img src="./gallery/service-page-2.webp" alt="Career Placement & Interview Meeting" style="width: 100%; border-radius: 16px; display: block; object-fit: cover; aspect-ratio: 4/3;">
         </div>
       </div>
@@ -1825,17 +2007,17 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
           Our commitment doesn't end with a grade. Through our career pipeline system, we review customer portfolios, host simulated mock interviews, and introduce candidates directly to top global hiring partners.
         </p>
         
-        <div style="display: flex; flex-direction: column; gap: 20px;">
-          <div style="display: flex; gap: 15px; align-items: flex-start;">
-            <div style="font-size: 1.3rem; background: var(--orange-light); color: var(--orange); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 12px; font-weight: 700;">🤝</div>
+        <div class="career-feature" style="display: flex; flex-direction: column; gap: 20px;">
+          <div  class="career-feature" style="display: flex; gap: 15px; align-items: flex-start;">
+            <div class="career-icon" style="font-size: 1.3rem; background: var(--orange-light); color: var(--orange); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 12px; font-weight: 700;">🤝</div>
             <div>
               <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px;">Direct Partner Referrals</h4>
               <p style="font-size: 0.78rem; color: var(--gray); line-height: 1.5;">Get direct placements in active partner companies. We highlight your achievements and portfolios directly to team leads.</p>
             </div>
           </div>
           
-          <div style="display: flex; gap: 15px; align-items: flex-start;">
-            <div style="font-size: 1.3rem; background: var(--orange-light); color: var(--orange); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 12px; font-weight: 700;">🎯</div>
+          <div  class="career-feature" style="display: flex; gap: 15px; align-items: flex-start;">
+            <div class="career-icon" style="font-size: 1.3rem; background: var(--orange-light); color: var(--orange); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 12px; font-weight: 700;">🎯</div>
             <div>
               <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px;">Mock Technical Interviews</h4>
               <p style="font-size: 0.78rem; color: var(--gray); line-height: 1.5;">Practice frontend, backend, or design rounds with alumni who currently work in high-growth companies.</p>
@@ -1884,12 +2066,38 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
         </a>
         <p>Stackly is a leading online real estate platform committed to making verified property search simple, transparent, and accessible. Find better properties, book tours, and close with confidence.</p>
         <div class="foot-soc">
-          <a class="fsoc" href="404.html">f</a>
-          <a class="fsoc" href="404.html">in</a>
-          <a class="fsoc" href="404.html">tw</a>
-          <a class="fsoc" href="404.html">yt</a>
-          <a class="fsoc" href="404.html">sk</a>
-        </div>
+  <a class="fsoc" href="https://facebook.com" target="_blank" aria-label="Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+
+  <a class="fsoc" href="https://instagram.com" target="_blank" aria-label="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+
+  <a class="fsoc" href="https://x.com" target="_blank" aria-label="X">
+    <i class="fab fa-x-twitter"></i>
+  </a>
+
+  <a class="fsoc" href="https://youtube.com" target="_blank" aria-label="YouTube">
+    <i class="fab fa-youtube"></i>
+  </a>
+
+  <a class="fsoc" href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+</div>
+      </div>
+      
+      <div class="fg-col">
+      <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
       <div class="fg-col">
         <h4>Property Resources</h4>
@@ -1903,23 +2111,12 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
         </ul>
       </div>
       <div class="fg-col">
-      <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="fg-col">
       <h4>Contact Us</h4>
-         <ul class="footer-contact-list">
+        <ul class="footer-contact-list">
           <li><span class="fc-icon">📍</span> <a href="404.html">Salem, Tamil Nadu, India</a></li>
           <li><span class="fc-icon">📞</span> <a href="404.html">+91 98765 43210</a></li>
-          <li><span class="fc-icon">✉️</span> <a href="404.html">stackly@property searchplatform.com</a></li>
-          <li><span class="fc-icon">🌐</span> <a href="404.html"> www.stacklyproperty searchplatform.com</a></li>
+          <li><span class="fc-icon">✉️</span> <a href="404.html">luxuryrealestate@stackly.com</a></li>
+          <li><span class="fc-icon">🌐</span> <a href="404.html"> www.luxuryrealestate.com</a></li>
         </ul>
       </div>
     </div>
@@ -1933,6 +2130,7 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
     </div>
   </div>
 </footer>
+
 
 <script>
 /* ===== LOADER TRANSITION ===== */
