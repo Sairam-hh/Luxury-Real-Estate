@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-<title>Services - Stackly</title>
+<title>404 — Page Not Found | Stackly</title>
 <style>
 /* Inlined from local site stylesheet(s). */
 /* ===================== RESET ===================== */
@@ -94,7 +92,7 @@ body:has(#navbar){padding-top:76px}
 .nav-logo-text{font-family:'Raleway',sans-serif;font-size:1.5rem;font-weight:900;color:var(--navy);letter-spacing:-1px}
 .nav-logo-text span{color:var(--orange)}
 .nav-logo-img {
-  height: 100px;
+  height: 42px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -111,7 +109,7 @@ body:has(#navbar){padding-top:76px}
   margin: 0 auto;
 }
 .footer-logo-img {
-  height: 100px;
+  height: 45px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -569,14 +567,9 @@ section{padding:80px 0;position:relative}
 
 /* ===================== FOOTER ===================== */
 footer{background:var(--navy);padding:70px 0 0}
-.footer-grid{
-    display:grid;
-    grid-template-columns:1.3fr 1fr 1fr 1.3fr;
-    gap:50px;
-    align-items:start;
-}
+.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px}
 .fg-brand .nav-logo-text{color:#fff;font-size:1.4rem}
-.fg-brand p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.75;margin:5px 0 20px;max-width:100%}
+.fg-brand p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.75;margin:14px 0 22px;max-width:280px}
 .foot-soc{display:flex;gap:8px}
 .fsoc{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:rgba(255,255,255,.6);cursor:pointer;text-decoration:none;transition:all .25s}
 .fsoc:hover{background:var(--orange);border-color:var(--orange);color:#fff;transform:translateY(-3px)}
@@ -585,7 +578,7 @@ footer{background:var(--navy);padding:70px 0 0}
 .fg-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
 .fg-col ul li a{font-size:.82rem;color:rgba(255,255,255,.5);text-decoration:none;transition:all .2s;display:flex;align-items:center;gap:6px}
 .fg-col ul li a:hover{color:var(--orange);padding-left:6px}
-.fg-col ul li a::before{color:var(--orange);opacity:0;transition:opacity .2s}
+.fg-col ul li a::before{content:'â€º';color:var(--orange);opacity:0;transition:opacity .2s}
 .fg-col ul li a:hover::before{opacity:1}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;display:flex;justify-content:space-between;align-items:center}
 .foot-bottom p{font-size:.8rem;color:rgba(255,255,255,.4)}
@@ -1472,99 +1465,6 @@ body.no-scroll, html.no-scroll {
   background: linear-gradient(135deg, rgba(17, 24, 39, 0.72), rgba(37, 99, 235, 0.56), rgba(15, 23, 42, 0.76));
 }
 
-/* ================= PRICING CARD HOVER ================= */
-
-.pricing-card{
-    position:relative;
-    overflow:hidden;
-    cursor:pointer;
-    background:#fff;
-    transition:all .45s cubic-bezier(.175,.885,.32,1.275);
-}
-
-/* Shine Effect */
-.pricing-card::before{
-    content:"";
-    position:absolute;
-    top:-150%;
-    left:-60%;
-    width:55%;
-    height:320%;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.45),
-        transparent
-    );
-    transform:rotate(25deg);
-    transition:.8s;
-}
-
-.pricing-card:hover::before{
-    left:140%;
-}
-
-/* Soft Glow */
-.pricing-card::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:20px;
-    background:radial-gradient(circle at top right,
-        rgba(239,71,111,.08),
-        transparent 70%);
-    opacity:0;
-    transition:.4s;
-    pointer-events:none;
-}
-
-.pricing-card:hover::after{
-    opacity:1;
-}
-
-/* Main Hover */
-.pricing-card:hover{
-    transform:translateY(-15px) scale(1.03);
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.15),
-        0 0 25px rgba(239,71,111,.20);
-    border-color:var(--orange)!important;
-}
-
-/* Heading */
-.pricing-card h4{
-    transition:.35s;
-}
-
-.pricing-card:hover h4{
-    color:var(--orange)!important;
-}
-
-/* Price */
-.pricing-card:hover div[style*="font-size: 2.5rem"],
-.pricing-card:hover div[style*="font-size: 2.2rem"]{
-    transform:scale(1.05);
-    transition:.35s;
-}
-
-/* List Animation */
-.pricing-card ul li{
-    transition:.3s;
-}
-
-.pricing-card:hover ul li{
-    transform:translateX(6px);
-}
-
-/* Button */
-.pricing-card button{
-    transition:.35s;
-}
-
-.pricing-card:hover button{
-    transform:scale(1.03);
-    box-shadow:0 10px 25px rgba(239,71,111,.25);
-}
 .feat-card,
 .property-card,
 .blog-card,
@@ -1583,7 +1483,7 @@ body.no-scroll, html.no-scroll {
     padding: 0 16px;
   }
   .nav-logo-img {
-    max-height: 100px;
+    max-height: 40px;
   }
   .hamburger {
     display: flex;
@@ -1648,88 +1548,6 @@ body.no-scroll, html.no-scroll {
 }
 
 
-.career-img-card{
-    background:var(--light);
-    border:1px solid var(--border);
-    padding:15px;
-    border-radius:24px;
-    box-shadow:var(--shadow);
-    overflow:hidden;
-    transition:all .45s cubic-bezier(.175,.885,.32,1.275);
-    cursor:pointer;
-}
-
-.career-img{
-    width:100%;
-    border-radius:16px;
-    display:block;
-    object-fit:cover;
-    aspect-ratio:4/3;
-    transition:transform .6s ease;
-}
-
-.career-img-card:hover{
-    transform:translateY(-12px);
-    box-shadow:0 22px 45px rgba(0,0,0,.18);
-}
-
-.career-img-card:hover .career-img{
-    transform:scale(1.08);
-}
-
-/* ===== Career Feature Hover ===== */
-
-.career-feature{
-    padding:18px;
-    border-radius:18px;
-    transition:all .4s ease;
-    cursor:pointer;
-}
-
-.career-feature:hover{
-    background:#fff;
-    transform:translateX(10px) translateY(-5px);
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
-}
-
-.career-feature:hover .career-icon{
-    background:var(--orange);
-    color:#fff;
-    transform:rotate(12deg) scale(1.12);
-    box-shadow:0 10px 20px rgba(239,71,111,.25);
-}
-
-.career-feature .career-icon{
-    transition:all .35s ease;
-}
-
-.career-content{
-    transition:all .35s ease;
-}
-
-.career-feature:hover .career-content{
-    transform:translateX(6px);
-}
-
-.career-content h4{
-    transition:.35s;
-}
-
-.career-content p{
-    transition:.35s;
-}
-
-.career-feature:hover .career-content h4{
-    color:var(--orange) !important;
-}
-
-.career-feature:hover .career-content p{
-    color:var(--navy3) !important;
-}
-
-
-
-
 /* Local font stack fallback after removing external font CSS. */
 body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Arial, sans-serif; }
 
@@ -1776,6 +1594,140 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
   };
 })();
 </script>
+<style>
+  #error-page {
+    background: var(--navy);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .error-container {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .error-logo {
+    height: 54px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+  }
+  .error-logo:hover {
+    transform: scale(1.05);
+  }
+  .error-code {
+    font-family: 'Raleway', sans-serif;
+    font-size: 7.5rem;
+    font-weight: 900;
+    color: transparent;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 15px;
+    letter-spacing: -2px;
+    animation: float 4s ease-in-out infinite alternate;
+  }
+  @keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-12px); }
+  }
+  .error-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .error-desc {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.65;
+    margin-bottom: 36px;
+  }
+  .error-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .btn-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background: var(--grad);
+    color: #ffffff !important;
+    font-size: 0.94rem;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.45);
+    transition: all 0.3s ease;
+    border: 2px solid #ffffff;
+    cursor: pointer;
+  }
+  .btn-back:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 35px rgba(255, 107, 53, 0.55);
+  }
+  .btn-home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff !important;
+    font-size: 0.94rem;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+  }
+  .btn-home:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+  }
+  .ambient-glow-1 {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(13,148,136,0.18) 0%, transparent 70%);
+    filter: blur(50px);
+    top: -15%;
+    left: -10%;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .ambient-glow-2 {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,107,53,0.1) 0%, transparent 70%);
+    filter: blur(60px);
+    bottom: -20%;
+    right: -10%;
+    z-index: 0;
+    pointer-events: none;
+  }
+</style>
 </head>
 <body>
 
@@ -1783,435 +1735,32 @@ body, button, input, select, textarea { font-family: 'Poppins', 'Segoe UI', Aria
 <div id="cur-dot"></div>
 <div id="cur-ring"></div>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-edu-wrapper">
-    <svg class="loader-edu-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="eduGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#2563eb" />
-          <stop offset="50%" stop-color="#ef476f" />
-          <stop offset="100%" stop-color="#f59e0b" />
-        </linearGradient>
-        <linearGradient id="eduGradFill" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#2563eb" stop-opacity="0.1" />
-          <stop offset="50%" stop-color="#ef476f" stop-opacity="0.1" />
-          <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.1" />
-        </linearGradient>
-      </defs>
-      <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="url(#eduGradFill)"/>
-      <path d="M2 10l10-5 10 5-10 5z" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="url(#eduGradFill)"/>
-      <path d="M22 10v6" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </div>
-  <div class="ld-logo">
-    <img src="./gallery/stackly-pink.webp" alt="Stackly Logo" class="loader-logo-img">
-  </div>
-  <div class="ld-bar-bg"><div class="ld-bar"></div></div>
-  <div class="ld-words">Loading services and plans...</div>
-</div>
+<section id="error-page">
+  <!-- Glow Backdrops -->
+  <div class="ambient-glow-1"></div>
+  <div class="ambient-glow-2"></div>
 
-<!-- SCROLL TOP -->
-<div id="scrolltop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
-
-</div>
-
-<!-- NAVBAR -->
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <img src="./gallery/stackly-pink.webp" alt="Stackly Logo" class="nav-logo-img">
-    </a>
-    <ul class="nav-menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="features.html">Features</a></li>
-      <li><a href="services.html" class="active">Services</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="nav-actions">
-      <button class="btn-login" onclick="location.href='login.html'">Login</button>
-      <button class="btn-register" onclick="location.href='signup.html'">Sign Up</button>
-    </div>
-    <div class="hamburger" id="ham">
-      <span></span><span></span><span></span>
-    </div>
-  </div>
-</nav>
-
-<!-- MOBILE MENU -->
-<div id="mob-menu">
-  <span id="mob-close">✕</span>
-  <div class="mob-menu-logo">
-    <img src="./gallery/stackly-pink.webp" alt="Stackly Logo" style="height: 100px; object-fit: contain;">
-  </div>
-  <div class="mob-menu-links">
-    <a href="index.html">Home</a>
-    <a href="features.html">Features</a>
-    <a href="services.html" class="active">Services</a>
-    <a href="about.html">About</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-  </div>
-  <div class="mob-menu-actions">
-    <a href="login.html" class="mob-menu-btn secondary">Login</a>
-    <a href="signup.html" class="mob-menu-btn">Sign Up</a>
-  </div>
-</div>
-
-<!-- SERVICES HERO -->
-<section id="services-hero" style="background: linear-gradient(135deg,#0d1527 0%,#1a365d 100%); min-height: 60vh; display: flex; align-items: center; color: #fff; padding: 100px 0; overflow: hidden; position: relative;">
-  <div class="container" style="position: relative; z-index: 2;">
-    <div class="grid-split-125-075" style="gap: 50px; align-items: center;">
-      <div class="hero-left">
-        <div class="sec-eyebrow" style="color: var(--orange); margin-bottom: 15px;">Tailored Real Estateal Solutions</div>
-        <h1 class="services-hero-title" style="font-family: 'Raleway', sans-serif; font-size: clamp(2.2rem, 4.5vw, 3.5rem); font-weight: 900; line-height: 1.15; margin-bottom: 20px;">
-          Empowering Teams &amp; <span style="color: var(--orange);">Scholars</span> Globally
-        </h1>
-        <p class="services-hero-sub" style="font-size: 1.05rem; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 35px; max-width: 620px;">
-          From strategic corporate upskilling to dedicated 1-on-1 mentorship, we offer comprehensive property search tracks and frameworks designed to foster real-world capabilities.
-        </p>
-        <div class="services-hero-btns" style="display: flex; gap: 15px;">
-          <a href="404.html" class="hbtn-main">💼 View All Services</a>
-          <a href="404.html" class="hbtn-ghost">Compare Pricing Plans</a>
-        </div>
-      </div>
-      <div class="hero-right">
-        <img src="./gallery/service-page-1.webp" alt="Services Hero Image" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.15); aspect-ratio: 4/3; object-fit: cover;">
-      </div>
+  <div class="error-container">
+    <div class="error-code">404</div>
+    <h2 class="error-title">Page Not Found</h2>
+    <p class="error-desc">Oops! The page you are looking for doesn't exist, has been removed, or is temporarily unavailable.</p>
+    <div class="error-actions">
+      <a href="#" class="btn-back" onclick="event.preventDefault(); history.back();">← Go Back</a>
+      <a href="admin-dashboard.html" class="btn-home">🏠 Go to Admin Dashboard</a>
     </div>
   </div>
 </section>
 
-<!-- SERVICES CARDS SECTION -->
-<section id="all-services" style="background: var(--light); padding: 90px 0;">
-  <div class="container">
-    <div class="sec-head">
-      <div class="sec-eyebrow">Our Specialities</div>
-      <h2 class="sec-title">Tailored <span>Property Search Solutions</span></h2>
-      <p class="sec-desc">Explore our custom programs engineered for agencys, professionals, and scaling enterprise departments.</p>
-    </div>
-
-    <div class="grid-3col" style="gap: 25px; margin-top: 50px;">
-      <!-- Service 1 -->
-      <div class="feat-card" style="padding: 35px;">
-        <div class="feat-icon" style="font-size: 1.6rem; width: 56px; height: 56px; margin-bottom: 20px;">🏢</div>
-        <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 12px; color: var(--navy);">Enterprise Upskilling</h3>
-        <p style="font-size: 0.84rem; color: var(--gray); line-height: 1.65; margin-bottom: 15px;">
-          Deploy dedicated company property search portals, private tech labs, and custom curriculums linked with detailed team performance reports.
-        </p>
-        <a href="404.html" style="color: var(--orange); font-size: 0.85rem; font-weight: 700; text-decoration: none;">Explore More &rarr;</a>
-      </div>
-
-      <!-- Service 2 -->
-      <div id="tutoring" class="feat-card" style="padding: 35px;">
-        <div class="feat-icon" style="font-size: 1.6rem; width: 56px; height: 56px; margin-bottom: 20px;">👨‍🏫</div>
-        <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 12px; color: var(--navy);">1-on-1 Dedicated Coaching</h3>
-        <p style="font-size: 0.84rem; color: var(--gray); line-height: 1.65; margin-bottom: 15px;">
-          Book live private video showrooms with certified industry specialists. Get fast answers, code reviews, and deep-dive technical audits.
-        </p>
-        <a href="404.html" style="color: var(--orange); font-size: 0.85rem; font-weight: 700; text-decoration: none;">Book a Session &rarr;</a>
-      </div>
-
-      <!-- Service 3 -->
-      <div class="feat-card" style="padding: 35px;">
-        <div class="feat-icon" style="font-size: 1.6rem; width: 56px; height: 56px; margin-bottom: 20px;">📜</div>
-        <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 12px; color: var(--navy);">Credential Auditing</h3>
-        <p style="font-size: 0.84rem; color: var(--gray); line-height: 1.65; margin-bottom: 15px;">
-          Audit and design reliable evaluation portals with AI proctoring controls, blockchain documents, and corporate candidate tracking.
-        </p>
-        <a href="404.html" style="color: var(--orange); font-size: 0.85rem; font-weight: 700; text-decoration: none;">Review Security &rarr;</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING SECTION -->
-<section id="pricing" style="background: #fff; padding: 100px 0;">
-  <div class="container">
-    <div class="sec-head">
-      <div class="sec-eyebrow">Pricing Plans</div>
-      <h2 class="sec-title">Transparent <span>Packages</span></h2>
-      <p class="sec-desc">Choose a plan that matches your current goal. Cancel or upgrade your tier at any time without fees.</p>
-    </div>
-
-    <div class="grid-3col" style="gap: 30px; margin-top: 50px; align-items: stretch;">
-      <!-- Tier 1 -->
-      <div style="border: 1px solid var(--border); border-radius: 20px; padding: 40px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s;" class="pricing-card">
-        <div>
-          <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--gray); margin-bottom: 10px;">Self-Paced Plan</h4>
-          <div style="font-size: 2.5rem; font-weight: 900; color: var(--navy); margin-bottom: 20px;">$29<span style="font-size: 0.9rem; font-weight: 500; color: var(--gray);">/month</span></div>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 0.86rem; color: var(--navy3);">
-            <li>✓ Unlimited access to 440+ video properties</li>
-            <li>✓ Core digital market guide materials</li>
-            <li>✓ Verifiable standard certification</li>
-            <li>✗ Private tutoring hours</li>
-            <li>✗ AI-powered dashboard reports</li>
-          </ul>
-        </div>
-        <button class="cc-btn" style="margin-top: 35px; width: 100%;" onclick="location.href='404.html'" type="button">Select Basic Plan</button>
-      </div>
-
-      <!-- Tier 2 -->
-      <div style="border: 2px solid var(--orange); border-radius: 20px; padding: 40px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: var(--shadow); transition: all 0.3s;" class="pricing-card">
-        <div style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--orange); color: #fff; font-size: 0.72rem; font-weight: 800; padding: 4px 14px; border-radius: 99px; text-transform: uppercase;">Most Popular</div>
-        <div>
-          <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--orange); margin-bottom: 10px;">Professional Plan</h4>
-          <div style="font-size: 2.5rem; font-weight: 900; color: var(--navy); margin-bottom: 20px;">$79<span style="font-size: 0.9rem; font-weight: 500; color: var(--gray);">/month</span></div>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 0.86rem; color: var(--navy3);">
-            <li>✓ Unlimited access to 440+ video properties</li>
-            <li>✓ All core and premium market guide downloads</li>
-            <li>✓ Premium documents (verifiable)</li>
-            <li>✓ <strong>2 Live 1-on-1 tutoring hours</strong>/mo</li>
-            <li>✓ AI Diagnostic custom evaluations</li>
-          </ul>
-        </div>
-        <button class="cc-btn" style="margin-top: 35px; width: 100%; background: var(--grad); color: #fff; border-color: transparent;" onclick="location.href='404.html'" type="button">Select Professional</button>
-      </div>
-
-      <!-- Tier 3 -->
-      <div style="border: 1px solid var(--border); border-radius: 20px; padding: 40px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s;" class="pricing-card">
-        <div>
-          <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--gray); margin-bottom: 10px;">Enterprise Package</h4>
-          <div style="font-size: 2.2rem; font-weight: 900; color: var(--navy); margin-bottom: 20px;">Custom Pricing</div>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 0.86rem; color: var(--navy3);">
-            <li>✓ Unlimited property catalogs for whole teams</li>
-            <li>✓ Custom co-branded portals &amp; APIs</li>
-            <li>✓ Dedicated academy account manager</li>
-            <li>✓ Unlimited live coaching hours</li>
-            <li>✓ Advanced AI progress dashboards</li>
-          </ul>
-        </div>
-        <button class="cc-btn" style="margin-top: 35px; width: 100%;" onclick="location.href='404.html'" type="button">Inquire Corporate</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CAREER PLACEMENT SECTION -->
-<section id="career-bridge" style="background: #fff; padding: 100px 0; overflow: hidden; border-top: 1px solid var(--border);">
-  <div class="container">
-    <div class="grid-split-1-1" style="gap: 60px; align-items: center;">
-      
-      <div class="rv-l" style="position: relative; order: 2;">
-        <div style="background: var(--light); border: 1px solid var(--border); padding: 15px; border-radius: 24px; box-shadow: var(--shadow);" class="career-img-card">
-          <img src="./gallery/service-page-2.webp" alt="Career Placement & Interview Meeting" style="width: 100%; border-radius: 16px; display: block; object-fit: cover; aspect-ratio: 4/3;">
-        </div>
-      </div>
-      
-      <div class="rv-r" style="order: 1;">
-        <div class="sec-eyebrow">Professional Pipeline</div>
-        <h2 class="sec-title">Stackly Bridge <span>Placement Services</span></h2>
-        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.75; margin-bottom: 25px;">
-          Our commitment doesn't end with a grade. Through our career pipeline system, we review customer portfolios, host simulated mock interviews, and introduce candidates directly to top global hiring partners.
-        </p>
-        
-        <div class="career-feature" style="display: flex; flex-direction: column; gap: 20px;">
-          <div  class="career-feature" style="display: flex; gap: 15px; align-items: flex-start;">
-            <div class="career-icon" style="font-size: 1.3rem; background: var(--orange-light); color: var(--orange); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 12px; font-weight: 700;">🤝</div>
-            <div>
-              <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px;">Direct Partner Referrals</h4>
-              <p style="font-size: 0.78rem; color: var(--gray); line-height: 1.5;">Get direct placements in active partner companies. We highlight your achievements and portfolios directly to team leads.</p>
-            </div>
-          </div>
-          
-          <div  class="career-feature" style="display: flex; gap: 15px; align-items: flex-start;">
-            <div class="career-icon" style="font-size: 1.3rem; background: var(--orange-light); color: var(--orange); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 12px; font-weight: 700;">🎯</div>
-            <div>
-              <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px;">Mock Technical Interviews</h4>
-              <p style="font-size: 0.78rem; color: var(--gray); line-height: 1.5;">Practice frontend, backend, or design rounds with alumni who currently work in high-growth companies.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES FAQ -->
-<section id="faq" style="background: var(--light); padding: 90px 0;">
-  <div class="container" style="max-width: 800px;">
-    <div class="sec-head">
-      <div class="sec-eyebrow">Solutions FAQ</div>
-      <h2 class="sec-title">Services <span>FAQ</span></h2>
-      <p class="sec-desc">Frequently asked questions regarding our tutoring sessions, team training programs, and billing configurations.</p>
-    </div>
-    
-    <div class="faq-list" style="margin-top: 40px;">
-      <div class="faq-item open">
-        <div class="faq-q">Can we roll over unused tutoring hours? <span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Tutoring hours included in the Professional Plan must be scheduled within the monthly billing period. Unused hours do not roll over to the next month.</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">What is the onboarding timeline for enterprise teams? <span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Standard enterprise setups are fully active within 48 hours. Custom LTI integrations or branded landing page requirements typically require 5 to 7 business days.</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Do you support direct bank invoicing for teams? <span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes! For team purchases of 5 or more licenses, we support quarterly or annual bank wire invoicing. Contact corporate billing for invoice scheduling.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="fg-brand">
-        <a href="index.html" class="nav-logo" style="margin-bottom:12px; display:inline-block;">
-          <img src="./gallery/stackly-pink.webp" alt="Stackly Logo" class="footer-logo-img">
-        </a>
-        <p>Stackly is a leading online real estate platform committed to making verified property search simple, transparent, and accessible. Find better properties, book tours, and close with confidence.</p>
-        <div class="foot-soc">
-  <a class="fsoc" href="404.html"  aria-label="Facebook">
-    <i class="fab fa-facebook-f"></i>
-  </a>
-
-  <a class="fsoc" href="404.html"  aria-label="Instagram">
-    <i class="fab fa-instagram"></i>
-  </a>
-
-  <a class="fsoc" href="404.html"  aria-label="X">
-    <i class="fab fa-x-twitter"></i>
-  </a>
-
-  <a class="fsoc" href="404.html"  aria-label="YouTube">
-    <i class="fab fa-youtube"></i>
-  </a>
-
-  <a class="fsoc" href="404.html"  aria-label="LinkedIn">
-    <i class="fab fa-linkedin-in"></i>
-  </a>
-</div>
-      </div>
-      
-      <div class="fg-col">
-      <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="fg-col">
-        <h4>Property Resources</h4>
-        <ul>
-          <li><a href="404.html">Projects</a></li>
-          <li><a href="404.html">Events</a></li>
-          <li><a href="404.html">Innovations</a></li>
-          <li><a href="404.html">Publications</a></li>
-          <li><a href="404.html">Collaborations</a></li>
-          <li><a href="404.html">Clubs & Activities</a></li>
-        </ul>
-      </div>
-      <div class="fg-col">
-      <h4>Contact Us</h4>
-        <ul class="footer-contact-list">
-          <li><span class="fc-icon">📍</span> <a href="404.html">Salem, Tamil Nadu, India</a></li>
-          <li><span class="fc-icon">📞</span> <a href="404.html">+91 98765 43210</a></li>
-          <li><span class="fc-icon">✉️</span> <a href="404.html">luxuryrealestate@stackly.com</a></li>
-          <li><span class="fc-icon">🌐</span> <a href="404.html"> www.stacklyrealestate.com</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <p>© 2024 Stackly. All rights reserved. Interior Readyed with ❤️ in Salem, Tamil Nadu.</p>
-      <div class="foot-links">
-        <a href="404.html">Privacy Policy</a>
-        <a href="404.html">Terms of Service</a>
-        <a href="404.html">Cookies</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-
+<!-- Cursor script -->
 <script>
-/* ===== LOADER TRANSITION ===== */
-const logo = document.querySelector('a.nav-logo');
-if (logo) {
-  logo.addEventListener('click', (e) => {
-    e.preventDefault();
-    const loader = document.getElementById('loader');
-    if (loader) {
-      loader.classList.add('show');
-      setTimeout(() => {
-        window.location.href = logo.getAttribute('href');
-      }, 1500);
-    } else {
-      window.location.href = logo.getAttribute('href');
-    }
+  const cd=document.getElementById('cur-dot'),cr=document.getElementById('cur-ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+  (function ac(){cd.style.left=mx+'px';cd.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(ac)})();
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cr.classList.add('big'));
+    el.addEventListener('mouseleave',()=>cr.classList.remove('big'));
   });
-}
-
-/* ===== CURSOR ===== */
-const cd=document.getElementById('cur-dot'),cr=document.getElementById('cur-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
-(function ac(){cd.style.left=mx+'px';cd.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(ac)})();
-document.querySelectorAll('a,button,.feat-card,.pricing-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>cr.classList.add('big'));
-  el.addEventListener('mouseleave',()=>cr.classList.remove('big'));
-});
-
-/* ===== NAVBAR SCROLL ===== */
-const nb=document.getElementById('navbar');
-window.addEventListener('scroll',()=>{
-  nb.classList.toggle('scrolled',scrollY>80);
-  document.getElementById('scrolltop').classList.toggle('show',scrollY>400);
-});
-
-/* ===== MOBILE MENU ===== */
-document.getElementById('ham').addEventListener('click',()=>{
-  document.getElementById('mob-menu').classList.add('open');
-  document.body.classList.add('no-scroll');
-  document.documentElement.classList.add('no-scroll');
-});
-document.getElementById('mob-close').addEventListener('click',()=>{
-  document.getElementById('mob-menu').classList.remove('open');
-  document.body.classList.remove('no-scroll');
-  document.documentElement.classList.remove('no-scroll');
-});
-document.querySelectorAll('#mob-menu a').forEach(a=>a.addEventListener('click',()=>{
-  document.getElementById('mob-menu').classList.remove('open');
-  document.body.classList.remove('no-scroll');
-  document.documentElement.classList.remove('no-scroll');
-}));
-
-/* ===== FAQ ACCORDION ===== */
-document.querySelectorAll('.faq-q').forEach(q=>{
-  q.addEventListener('click',function(){
-    const item=this.parentElement;
-    const isOpen=item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-    if(!isOpen)item.classList.add('open');
-  });
-});
-
-/* ===== GSAP SERVICES ANIMATIONS ===== */
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    if (typeof gsap !== 'undefined') {
-      gsap.from("#services-hero .sec-eyebrow", { opacity: 0, y: -20, duration: 0.8, ease: "power2.out" });
-      gsap.from(".services-hero-title", { opacity: 0, y: 30, duration: 1, delay: 0.2, ease: "power3.out" });
-      gsap.from(".services-hero-sub", { opacity: 0, y: 20, duration: 1, delay: 0.4, ease: "power2.out" });
-      gsap.from(".services-hero-btns", { opacity: 0, scale: 0.95, duration: 0.8, delay: 0.6, ease: "back.out(1.5)" });
-      gsap.from("#services-hero img", { opacity: 0, x: 40, duration: 1.2, delay: 0.4, ease: "power3.out" });
-    }
-  }, 1500);
-});
-
-/* ===== SCROLL REVEAL ===== */
-const ro=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
-},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el=>ro.observe(el));
 </script>
 </body>
 </html>
